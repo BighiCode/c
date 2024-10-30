@@ -8,9 +8,15 @@ int main(int argc, char const *argv[])
     TCarta cartas[52], carta;
     lerArquivo(cartas);
 
-    carta = sorteiaCarta(cartas);
-    
-    printf("\nnome: %s \nface: %s \nnaipe: %c \nvalor: %d",carta.nome, carta.face, carta.naipe, carta.valor);
+    int escolha = 1;
 
+    while(escolha != 9){
+        printf("\n\nEscolha uma opcao: \n1 - Sortear \n9 - Sair\n");
+        scanf("%d", &escolha);
+        if(escolha == 1){
+            carta = sorteiaCarta(cartas);
+            printf("\nnome: %s \nface: %s \nnaipe: %c \nvalor: %d",carta.nome, carta.face, carta.naipe, carta.valor);
+        }
+    }
     return 0;
 }
