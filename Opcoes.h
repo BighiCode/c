@@ -1,0 +1,1 @@
+TCarta sorteiaCarta(TCarta *cartas);
