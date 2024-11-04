@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/Users/gabri/OneDrive/Área de Trabalho/Faculdade/3º periodo/Estruturas de Dados/c",
-      "program": "c:/Users/gabri/OneDrive/Área de Trabalho/Faculdade/3º periodo/Estruturas de Dados/c/build/Debug/outDebug",
+      "program": "c:/Users/gabri/OneDrive/Área de Trabalho/Faculdade/3º periodo/Estruturas de Dados/c/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

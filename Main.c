@@ -3,7 +3,7 @@
 #include <string.h>
 #include "Arquivo.h"
 #include "Opcoes.h"
-int main(int argc, char const *argv[])
+int main()
 {
     TCarta cartas[52], carta;
     lerArquivo(cartas);
