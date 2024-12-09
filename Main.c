@@ -3,20 +3,41 @@
 #include <string.h>
 #include "Arquivo.h"
 #include "Opcoes.h"
+#include "Menu.h"
 int main()
 {
     TCarta cartas[52], carta;
     lerArquivo(cartas);
+    int escolha;
 
-    int escolha = 1;
-
-    while(escolha != 9){
-        printf("\n\nEscolha uma opcao: \n1 - Sortear \n9 - Sair\n");
-        scanf("%d", &escolha);
-        if(escolha == 1){
-            carta = sorteiaCarta(cartas);
-            printf("\nnome: %s \nface: %s \nnaipe: %c \nvalor: %d",carta.nome, carta.face, carta.naipe, carta.valor);
+    while(1){
+        escolha = menu1();
+        switch(escolha){
+            case 1:
+                break;
+            case 2:
+                return 0;
+            default:
+                printf("Opcao invalida\n");
+                break;
         }
     }
+    
+    while (1)
+    {
+        escolha = menu2();
+        switch(escolha){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                return 0;
+            default:
+                printf("Opcao invalida\n");
+                break;
+        }
+    }
+    
     return 0;
 }
