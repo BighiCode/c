@@ -6,11 +6,11 @@
     *int valor - Valor da Carta
     *char nome[20] - Nome da Carta
 */
-typedef struct{
+typedef struct TCarta {
     char face[3];
     char naipe;
     int valor;
     char nome[20];
-}TCarta;
+} TCarta;
 
-void lerArquivo(TCarta *cartas);
+int lerArquivo(TCarta *cartas);
