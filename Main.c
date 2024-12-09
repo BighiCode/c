@@ -1,25 +1,25 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "Opcoes.h"
-#include "Menu.h"
-#include "Lista.h"
+
 int main()
 {
-    TCarta cartas[52], carta;
+     time_t currentTime = time(NULL);
+    srand((unsigned int)currentTime);
+    
+    TCarta cartas[52],carta;
     int numeroCartas, escolha;
-    Tno *cabeca = NULL;
-
+    Tno* Tcabeca = NULL;
+    TCarta **cabeca = NULL;
+    TCarta* mao = malloc(5 * sizeof(TCarta));
     numeroCartas = lerArquivo(cartas);
 
-    inserirCartas(&cabeca, cartas, numeroCartas);
+    inserirCartas(&Tcabeca, cartas, numeroCartas);
     
 
     while(1){
         escolha = menu1();
         switch(escolha){
             case 1:
-                imprimirCartas(cabeca);
+                sortearCartas(&Tcabeca, mao, 5);
                 break;
             case 2:
                 return 0;
@@ -31,6 +31,7 @@ int main()
 
     while (1)
     {
+        mostrarMao(mao);
         escolha = menu2();
         switch(escolha){
             case 1:

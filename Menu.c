@@ -1,5 +1,4 @@
 #include "Menu.h"
-#include <stdio.h>
 
 /**
  * PRINTA AS OPÇÕES DO MENU	1
@@ -36,4 +35,16 @@ int menu2(){
     printf("Escolha uma opcao: ");
     scanf("%d", &escolha);
     return escolha;
+}
+
+void mostrarMao(TCarta *mao){
+    printf("\n");
+    for(int i = 0; i < 5; i++){
+        printf("%s %c\t", mao[i].face, mao[i].naipe);
+    }
+    printf("\n");
+    for(int i = 0; i < 5; i++){
+        printf("  %d  \t",i);
+    }
+    printf("\n");
 }
