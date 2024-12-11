@@ -40,10 +40,35 @@ void inserirNoFinal(Tno** cabeca, TCarta carta) {
     }
 }
 
-void imprimirCartas(Tno* cabeca) {
+void imprimirCartas(Tno* cabeca, int quantidade) {
     Tno* atual = cabeca;
     while (atual != NULL) {
         printf("%s %c %d %s\n", atual->carta.face, atual->carta.naipe, atual->carta.valor, atual->carta.nome);
         atual = atual->prox;
     }
+    printf("\n");
+}
+
+void removerCartas(Tno** cabeca, Tno* carta) {
+    
+    Tno* atual = *cabeca;
+    Tno* anterior = NULL;
+    
+    while (atual != NULL && atual != carta) {
+        anterior = atual;
+        atual = atual->prox;
+    }
+    
+    if (atual == NULL) {
+        return;
+    }
+    
+    if (anterior == NULL) {
+        *cabeca = atual->prox;
+    } else {
+        anterior->prox = atual->prox;
+    }
+    
+    free(atual);
+    
 }

@@ -1,4 +1,4 @@
 #include "Lista.h"
 
-void sortearCartas(Tno** cabeca, TCarta *mao,int quantidade);
-TCarta sortearCarta(Tno** cabeca);
+void sortearCartas(Tno** cabeca, int quantidade, int numCartasRestantes);
+TCarta sortearCarta(Tno** cabeca, int numCartasRestantes);
