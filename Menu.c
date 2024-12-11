@@ -36,4 +36,3 @@ int menu2(){
     scanf("%d", &escolha);
     return escolha;
 }
-

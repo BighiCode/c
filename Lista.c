@@ -36,16 +36,19 @@ void inserirNoFinal(Tno** cabeca, TCarta carta) {
  void inserirCartas(Tno** cabeca, TCarta* cartas, int numCartas) {
     for (int i = 0; i < numCartas; i++) {
         // insere a carta na lista
-        inserirNoFinal(cabeca, cartas[i]);
+        inserirNoInicio(cabeca, cartas[i]);
     }
 }
 
 void imprimirCartas(Tno* cabeca, int quantidade) {
     Tno* atual = cabeca;
-    while (atual != NULL) {
-        printf("%s %c %d %s\n", atual->carta.face, atual->carta.naipe, atual->carta.valor, atual->carta.nome);
+    while (atual != NULL && quantidade > 0) {
+        printf("%s %c\t", atual->carta.face, atual->carta.naipe);
+        
         atual = atual->prox;
+        quantidade--;
     }
+    printf("\n1\t2\t3\t4\t5\n");
     printf("\n");
 }
 

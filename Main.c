@@ -6,6 +6,7 @@ int main()
     srand((unsigned int)currentTime);
     
     int numeroCartas, escolha, numeroCartasRestantes = 52;
+    int p1,p2;
 
     Tno* Tcabeca = NULL;
 
@@ -23,7 +24,6 @@ int main()
         escolha = menu1();
         switch(escolha){
             case 1:
-                imprimirCartas(Tcabeca);
                 sortearCartas(&Tcabeca, 5,numeroCartasRestantes);
                 numeroCartasRestantes-= 5;
                 break;
@@ -41,9 +41,14 @@ int main()
         escolha = menu2();
         switch(escolha){
             case 1:
+                printf("Reposicionar cartas\n");
+                printf("Posicao 1: ");
+                scanf("%d", &p1);
+                printf("Posicao 2: ");
+                scanf("%d", &p2);
+                reposionarCartas(&Tcabeca, p1, p2);
                 break;
             case 2:
-
                 break;
             case 3:
                 return 0;

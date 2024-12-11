@@ -45,6 +45,21 @@ TCarta sortearCarta(Tno** cabeca, int numCartasRestantes) {
     
     TCarta carta = (temp)->carta;
     removerCartas(cabeca, temp);
-    imprimirCartas(*cabeca);
     return carta;
+}
+
+void reposionarCartas(Tno** cabeca, int p1, int p2){
+
+    Tno* temp1 = *cabeca;
+    Tno* temp2 = *cabeca;
+
+    for(int i = 0; i < p1; i++){
+        temp1 = temp1->prox;
+    }
+
+    for(int i = 0; i < p2; i++){
+        temp2 = temp2->prox;
+    }
+    
+
 }
