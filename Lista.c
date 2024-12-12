@@ -40,6 +40,7 @@ void inserirNoFinal(Tno** cabeca, TCarta carta) {
     }
 }
 
+
 void imprimirCartas(Tno* cabeca, int quantidade) {
     Tno* atual = cabeca;
     while (atual != NULL && quantidade > 0) {

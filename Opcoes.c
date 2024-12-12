@@ -48,18 +48,51 @@ TCarta sortearCarta(Tno** cabeca, int numCartasRestantes) {
     return carta;
 }
 
-void reposionarCartas(Tno** cabeca, int p1, int p2){
-
-    Tno* temp1 = *cabeca;
-    Tno* temp2 = *cabeca;
-
-    for(int i = 0; i < p1; i++){
-        temp1 = temp1->prox;
+void reposicionarCartas(Tno** cabeca, int p1, int p2) {
+    if (*cabeca == NULL || p1 == p2) {
+        return;
     }
 
-    for(int i = 0; i < p2; i++){
-        temp2 = temp2->prox;
-    }
-    
+    Tno* carta1 = *cabeca;
+    Tno* carta2 = *cabeca;
+    Tno* anterior1 = NULL;
+    Tno* anterior2 = NULL;
 
+    // Encontra a carta na posição p1
+    for (int i = 0; i < p1; i++) {
+        if (carta1 == NULL) {
+            return;
+        }
+        anterior1 = carta1;
+        carta1 = carta1->prox;
+    }
+
+
+    // Encontra a carta na posição p2
+    for (int i = 0; i < p2; i++) {
+        if (carta2 == NULL) {
+            return;
+        }
+        anterior2 = carta2;
+        carta2 = carta2->prox;
+    }
+
+
+    // Troca as cartas
+    if (anterior1 == NULL) {
+        *cabeca = carta2;
+    } else {
+        anterior1->prox = carta2;
+    }
+
+    if (anterior2 == NULL) {
+        *cabeca = carta1;
+    } else {
+        anterior2->prox = carta1;
+    }
+
+    // Troca os próximos ponteiros
+    Tno* prox1 = carta1->prox;
+    carta1->prox = carta2->prox;
+    carta2->prox = prox1;
 }
