@@ -18,4 +18,11 @@ typedef struct TCarta {
     char nome[20];
 } TCarta;
 
+typedef struct bonus {
+    int copas;
+    int espadas;
+    int ouros;
+    int paus;
+} Bonus;
+
 int lerArquivo(TCarta *cartas);

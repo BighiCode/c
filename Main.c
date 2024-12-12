@@ -6,10 +6,15 @@ int main()
     srand((unsigned int)currentTime);
     
     int numeroCartas, escolha, numeroCartasRestantes = 52;
-    int p1,p2;
+    int p1,p2, quantidade;
 
     Tno* Tcabeca = NULL;
 
+    Bonus *bonus = (Bonus*)malloc(sizeof(Bonus));
+    bonus->copas = 0;
+    bonus->espadas = 0;
+    bonus->ouros = 0;
+    bonus->paus = 0;
 
     TCarta cartas[52],carta;
     TCarta* mao = malloc(5 * sizeof(TCarta));
@@ -37,8 +42,10 @@ int main()
 
     while (1)
     {
+        printf("Mao:\n");
         imprimirCartas(Tcabeca,5);
-        escolha = menu2();
+        printf("\n");
+        escolha = menu2(bonus);
         switch(escolha){
             case 1:
                 printf("Reposicionar cartas\n");
@@ -49,6 +56,10 @@ int main()
                 reposicionarCartas(&Tcabeca, p1 - 1, p2 - 1);
                 break;
             case 2:
+                printf("Remover cartas\n");
+                printf("Quantidade: ");
+                scanf("%d", &quantidade);
+                descartarCartas(&Tcabeca, quantidade, bonus);
                 break;
             case 3:
                 return 0;

@@ -96,3 +96,47 @@ void reposicionarCartas(Tno** cabeca, int p1, int p2) {
     carta1->prox = carta2->prox;
     carta2->prox = prox1;
 }
+
+
+void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus) {
+    if (*cabeca == NULL) {
+        return;
+    }
+
+    Tno* atual = *cabeca;
+    TCarta descarte[quantidade];
+
+    for (int i = 0; i < quantidade; i++) {
+        descarte[i] = atual->carta;
+        atual = atual->prox;
+    }
+
+    printf("Cartas descartadas:\n");
+    for (int i = 0; i < quantidade; i++)
+    {
+        printf("%s %c\t", descarte[i].face, descarte[i].naipe);
+    }
+    printf("\n");
+
+    for (int i = 0; i < quantidade; i++) {
+         removerCartas(cabeca, *cabeca);
+    }
+
+    for (int i = 0; i < quantidade; i++)
+    {
+        if(descarte[i].naipe == 'C'){
+            bonus->copas += descarte[i].valor;
+        }
+        if(descarte[i].naipe == 'E'){
+            bonus->espadas += descarte[i].valor;
+        }
+        if(descarte[i].naipe == 'O'){
+            bonus->ouros += descarte[i].valor;
+        }
+        if(descarte[i].naipe == 'P'){
+            bonus->paus += descarte[i].valor;
+        }
+    }
+    
+    
+}

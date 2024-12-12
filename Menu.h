@@ -2,4 +2,4 @@
 
 
 int menu1();
-int menu2();
+int menu2(Bonus* bonus);
