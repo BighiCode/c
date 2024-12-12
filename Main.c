@@ -42,9 +42,10 @@ int main()
 
     while (1)
     {
-        printf("Mao:\n");
+        printf("\n\n");
+        printf("-------------------------------------------------------");
+        printf("\nMao:\n");
         imprimirCartas(Tcabeca,5);
-        printf("\n");
         escolha = menu2(bonus);
         switch(escolha){
             case 1:

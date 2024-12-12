@@ -137,6 +137,149 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus) {
             bonus->paus += descarte[i].valor;
         }
     }
+
+    int face[quantidade],naipe[quantidade],sequencia = 0;
+
+    for (int i = 0; i < quantidade; i++)
+    {
+        face[i] = 0;
+        naipe[i] = 0;
+    }
     
+    int streak = 0;
+
+    for(int i = 0; i < quantidade; i++){
+        for (int j = 0; j < quantidade; j++)
+        {
+            if(descarte[i].face == descarte[j].face){
+                face[i] += 1;
+            }
+            if(descarte[i].naipe == descarte[j].naipe){
+                naipe[i] += 1;
+            }
+        }
+        
+    }
+
+    for(int i = 0; i < quantidade; i++){
+        int val;
+        for(int j = 0; j < quantidade; j++){
+            if((descarte[i].valor == val+1) || (descarte[i].valor == 1 && val == 13) || i == 0){
+                val = descarte[i].valor;
+                sequencia++;
+            }
+        }
+    }
+    sequencia++;
+
+    int maiorFace = 0, maiorNaipe = 0;
+    for (int i = 0; i < quantidade; i++){
+        if(face[i] > maiorFace){
+            maiorFace = face[i];
+        }
+        if(naipe[i] > maiorNaipe){
+            maiorNaipe = naipe[i];
+        }
+    }
+
+    if(maiorFace >= 4){
+        char c;
+        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) quadra:\n");
+        scanf(" %c", &c);
+        if(c == 'C'){
+            bonus->copas += 20;
+        }
+        if(c == 'E'){
+            bonus->espadas += 20;
+        }
+        if(c == 'O'){
+            bonus->ouros += 20;
+        }
+        if(c == 'P'){
+            bonus->paus += 20;
+        }
+        return;
+    }
+
+    if(maiorNaipe >= 3){
+        char c;
+        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) Mesmo naipe:\n");
+        scanf(" %c", &c);
+        if(c == 'C'){
+            bonus->copas += 3*maiorNaipe;
+        }
+        if(c == 'E'){
+            bonus->espadas += 3*maiorNaipe;
+        }
+        if(c == 'O'){
+            bonus->ouros += 3*maiorNaipe;
+        }
+        if(c == 'P'){
+            bonus->paus += 3*maiorNaipe;
+        }
+        return;
+    }
+
+    if(sequencia >= 3){
+        char c;
+        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) sequencia:\n");
+        scanf(" %c", &c);
+        if(c == 'C'){
+            bonus->copas += 2*sequencia;
+        }
+        if(c == 'E'){
+            bonus->espadas += 2*sequencia;
+        }
+        if(c == 'O'){
+            bonus->ouros += 2*sequencia;
+        }
+        if(c == 'P'){
+            bonus->paus += 2*sequencia;
+        }
+        return;
+    }
+
+    
+
+    if(maiorFace == 3){
+        char c;
+        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) trinca:\n");
+        scanf(" %c", &c);
+        if(c == 'C'){
+            bonus->copas += 5;
+        }
+        if(c == 'E'){
+            bonus->espadas += 5;
+        }
+        if(c == 'O'){
+            bonus->ouros += 5;
+        }
+        if(c == 'P'){
+            bonus->paus += 5;
+        }
+        return;
+    }
+
+    if (maiorFace == 2)
+    {
+        char c;
+        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) par:\n");
+        scanf(" %c", &c);
+        if(c == 'C'){
+            bonus->copas += 2;
+        }
+        if(c == 'E'){
+            bonus->espadas += 2;
+        }
+        if(c == 'O'){
+            bonus->ouros += 2;
+        }
+        if(c == 'P'){
+            bonus->paus += 2;
+        }
+        return;
+    }
+    
+
     
 }
