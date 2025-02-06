@@ -44,12 +44,13 @@ void inserirNoFinal(Tno** cabeca, TCarta carta) {
 void imprimirCartas(Tno* cabeca, int quantidade) {
     Tno* atual = cabeca;
     while (atual != NULL && quantidade > 0) {
-        printf("%s %c\t", atual->carta.face, atual->carta.naipe);
+        printf("|%s-%c|\t", atual->carta.face, atual->carta.naipe);
         
         atual = atual->prox;
         quantidade--;
     }
-    printf("\n1\t2\t3\t4\t5\n");
+    printf("\nposicao:");
+    printf("  1\t  2\t  3\t  4\t  5\n");
     printf("\n");
 }
 

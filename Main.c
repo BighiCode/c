@@ -1,4 +1,5 @@
 #include "Opcoes.h"
+#define REPEAT(n, str) for (int i = 0; i < (n); i++) printf(str)
 
 int main()
 {
@@ -42,9 +43,9 @@ int main()
 
     while (1)
     {
-        printf("\n\n");
+        REPEAT(40, "\n");
         printf("-------------------------------------------------------");
-        printf("\nMao:\n");
+        printf("\nMao:\t");
         imprimirCartas(Tcabeca,5);
         escolha = menu2(bonus);
         switch(escolha){
