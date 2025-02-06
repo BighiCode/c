@@ -45,6 +45,7 @@ int main()
     {
         REPEAT(40, "\n");
         printf("-------------------------------------------------------");
+        printf("");
         printf("\nMao:\t");
         imprimirCartas(Tcabeca,5);
         escolha = menu2(bonus);
