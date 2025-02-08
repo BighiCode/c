@@ -48,6 +48,7 @@ int main()
         printf("\nMao:\t");
         imprimirCartas(Tcabeca,5);
         escolha = menu2(bonus);
+    
         switch(escolha){
             case 1:
                 printf("Reposicionar cartas\n");
@@ -64,10 +65,14 @@ int main()
                 descartarCartas(&Tcabeca, quantidade, bonus);
                 break;
             case 3:
+                printf("Cumprir tarefas\n");
+                break;
+            case 6:
                 return 0;
             default:
                 printf("Opcao invalida\n");
                 break;
+            
         }
     }
     
