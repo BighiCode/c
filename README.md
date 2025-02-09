@@ -24,5 +24,10 @@ Se estiver no Windows, use:
 ```
 
 ## 🛠 Requisitos
-- **Windows**: Instalar o MinGW para compilar com GCC.
+- **Windows**: 
+- Instalar o MinGW para compilar com GCC.
+    https://www.youtube.com/watch?v=z4k-qHdfLZ4
+- Ter o git instalado
+    https://www.youtube.com/watch?v=Am46OOLgV4s
+
 
