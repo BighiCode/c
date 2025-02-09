@@ -18,9 +18,6 @@ if ($?) { gcc *.c -o Main } ; if ($?) { .\Main }
 ```
 
 ### 3️⃣ Executar o jogo
-```sh
-./Main
-```
 
 Se estiver no Windows, use:
 ```sh
