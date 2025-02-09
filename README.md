@@ -8,15 +8,25 @@ Este é um jogo de cartas desenvolvido em C para a disciplina de Estruturas de D
 Abra o **CMD** ou **PowerShell** e execute:
 ```sh
 git clone https://github.com/BighiCode/c.git
-cd .\c\
+cd ./c/
 ```
 
 ### 2️⃣ Compilar o programa
+Se estiver no Windows e tiver o GCC instalado, rode:
 ```sh
-./gcc.exe -o Main.exe *.c
+if ($?) { gcc *.c -o Main } ; if ($?) { .\Main }
 ```
+
 ### 3️⃣ Executar o jogo
+```sh
+./Main
+```
+
 Se estiver no Windows, use:
 ```sh
-Main.exe
+./Main.exe
 ```
+
+## 🛠 Requisitos
+- **Windows**: Instalar o MinGW para compilar com GCC.
+
