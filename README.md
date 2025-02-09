@@ -8,7 +8,7 @@ Este é um jogo de cartas desenvolvido em C para a disciplina de Estruturas de D
 Abra o **CMD** ou **PowerShell** e execute:
 ```sh
 git clone https://github.com/BighiCode/c.git
-cd c
+cd .\c\
 ```
 
 ### 2️⃣ Compilar o programa
