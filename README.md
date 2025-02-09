@@ -13,7 +13,7 @@ cd .\c\
 
 ### 2️⃣ Compilar o programa
 ```sh
-if ($?) { gcc *.c -o Main } ; if ($?) { .\Main }
+./gcc.exe -o Main.exe *.c
 ```
 ### 3️⃣ Executar o jogo
 Se estiver no Windows, use:
