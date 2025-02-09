@@ -10,13 +10,13 @@ Abra o **CMD** ou **PowerShell** e execute:
 git clone https://github.com/BighiCode/c.git; cd ./c/
 ```
 
-### 2️⃣ Compilar o programa
+### 2️⃣ Compilar o programa e executar o jogo
 Se estiver no Windows e tiver o GCC instalado, rode:
 ```sh
-if ($?) { gcc *.c -o Main } ; if ($?) { .\Main }
+gcc *.c -o Main; if ($?) { .\Main }
 ```
 
-### 3️⃣ Executar o jogo
+### 3️⃣ Executar o jogo sem precisar compilar de novo
 
 Se estiver no Windows, use:
 ```sh
