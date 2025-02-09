@@ -283,3 +283,5 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus) {
 
     
 }
+
+void cumprirTarefas(){}

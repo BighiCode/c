@@ -65,7 +65,7 @@ int main()
                 descartarCartas(&Tcabeca, quantidade, bonus);
                 break;
             case 3:
-                printf("Cumprir tarefas\n");
+                cumprirTarefas();
                 break;
             case 6:
                 return 0;
