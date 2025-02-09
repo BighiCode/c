@@ -6,6 +6,8 @@ int main()
     time_t currentTime = time(NULL);
     srand((unsigned int)currentTime);
     
+    
+
     int numeroCartas, escolha, numeroCartasRestantes = 52;
     int p1,p2, quantidade;
 
