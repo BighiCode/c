@@ -7,7 +7,7 @@ Este é um jogo de cartas desenvolvido em C para a disciplina de Estruturas de D
 ### 1️⃣ Clonar o repositório
 Abra o **CMD** ou **PowerShell** e execute:
 ```sh
-git clone https://github.com/BighiCode/c.git
+git clone https://github.com/BighiCode/c.git;
 cd ./c/
 ```
 
