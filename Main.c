@@ -9,6 +9,7 @@ int main()
     srand((unsigned int)currentTime);
     
     Tarefa Tarefas[10];
+    Fila* fila = criarFila();
 
     int numeroCartas, escolha, numeroCartasRestantes = 52;
     int p1,p2, quantidade, turno = 1;
