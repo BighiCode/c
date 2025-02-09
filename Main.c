@@ -1,5 +1,4 @@
 #include "Opcoes.h"
-#include "Tarefas.h"
 
 #define REPEAT(n, str) for (int i = 0; i < (n); i++) printf(str)
 
@@ -9,9 +8,10 @@ int main()
     srand((unsigned int)currentTime);
     
     Tarefa Tarefas[10];
+    Fila* fila = criarFila();
 
     int numeroCartas, escolha, numeroCartasRestantes = 52;
-    int p1,p2, quantidade, turno = 1;
+    int p1,p2, quantidade, turno = 0;
 
     Tno* Tcabeca = NULL;
 
@@ -53,7 +53,7 @@ int main()
     while (1)
     {
         REPEAT(40, "\n");
-        menuTurno(turno);
+        menuTurno(turno, fila);
         //imprimirTarefas(Tarefas, 10, turno);
         printf("\n-------------------------------------------------------");
         printf("\nMao:\t");
@@ -80,6 +80,12 @@ int main()
                 break;
             case 5:
                 turno++;
+                for(int i = 0; i < 10; i++){
+                   
+                    if(Tarefas[i].turnoDeAparecimento == turno){
+                        adicionarFila(fila, Tarefas[i]);
+                    }
+                }
                 break;
             case 6:
                 return 0;
