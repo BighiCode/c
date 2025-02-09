@@ -27,15 +27,29 @@ int menu1(){
  */
 int menu2(Bonus* bonus){
     int escolha;
-    printf("\n\n-------------------------------------------------------");
+    int n = 0;
+    printf("\n-------------------------------------------------------");
     printf("\nbonus:\n");
     printf("copas:%d espadas:%d ouros:%d paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
-    printf("\n\n-------------------------------------------------------");
+    printf("-------------------------------------------------------");
     printf("\nMenu\n\n");
-    printf("1. reposicionar cartas\n");
-    printf("2. descartar cartas\n");
-    printf("3. Sair\n");
+    n++;printf("%d. reposicionar cartas\n",n);
+    n++;printf("%d. descartar cartas\n",n);
+    n++;printf("%d. cumprir tarefas\n",n);
+    n++;printf("%d. #reenbaralhar tudo\n",n);
+    n++;printf("%d. finalizar turno\n",n);
+    n++;printf("%d. Sair\n",n);
+
     printf("Escolha uma opcao: ");
     scanf("%d", &escolha);
     return escolha;
+}
+
+void menuTurno(int turno){
+
+    printf("-------------------------------------------------------");
+    printf("\nTurno: %d", turno);
+    printf("\nTarefas: ");
+
+
 }
