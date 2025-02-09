@@ -45,14 +45,24 @@ int menu2(Bonus* bonus){
     return escolha;
 }
 
-void menuTurno(int turno, Fila *fila){
-
+void menuTurno(int turno, Fila *fila) {
     printf("-------------------------------------------------------");
     printf("\nTurno: %d", turno);
     printf("\nTarefas: ");
-    bool status;
-    Tarefa primeira = espiarFila(fila, &status);
-    printf("%d (P-%d E-%d O-%d C-%d)",primeira.prazo, primeira.pausDemandados, primeira.espadasDemandadas, primeira.ourosDemandados, primeira.copasDemandadas);
-    
 
+    if (estaVazia(fila)) {
+        printf(" Nenhuma tarefa na fila.\n");
+        return;
+    }
+
+    Node* atual = fila->head;
+    while (atual != NULL) {
+        Tarefa t = atual->tarefa;
+        printf("%d (P-%d E-%d O-%d C-%d) ", 
+               t.prazo, t.pausDemandados, t.espadasDemandadas, 
+               t.ourosDemandados, t.copasDemandadas);
+        atual = atual->next;
+    }
+
+    printf("\n-------------------------------------------------------\n");
 }

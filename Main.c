@@ -11,7 +11,7 @@ int main()
     Fila* fila = criarFila();
 
     int numeroCartas, escolha, numeroCartasRestantes = 52;
-    int p1,p2, quantidade, turno = 1;
+    int p1,p2, quantidade, turno = 0;
 
     Tno* Tcabeca = NULL;
 
