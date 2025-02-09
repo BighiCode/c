@@ -28,7 +28,7 @@ int menu1(){
 int menu2(Bonus* bonus){
     int escolha;
     int n = 0;
-    printf("-------------------------------------------------------");
+    printf("\n-------------------------------------------------------");
     printf("\nbonus:\n");
     printf("copas:%d espadas:%d ouros:%d paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
     printf("-------------------------------------------------------");
@@ -50,7 +50,6 @@ void menuTurno(int turno){
     printf("-------------------------------------------------------");
     printf("\nTurno: %d", turno);
     printf("\nTarefas: ");
-    printf("\n");
 
 
 }

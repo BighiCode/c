@@ -1,4 +1,6 @@
 #include "Opcoes.h"
+#include "Tarefas.h"
+
 #define REPEAT(n, str) for (int i = 0; i < (n); i++) printf(str)
 
 int main()
@@ -6,7 +8,7 @@ int main()
     time_t currentTime = time(NULL);
     srand((unsigned int)currentTime);
     
-    
+    Tarefa Tarefas[10];
 
     int numeroCartas, escolha, numeroCartasRestantes = 52;
     int p1,p2, quantidade, turno = 1;
@@ -22,6 +24,8 @@ int main()
     TCarta cartas[52],carta;
     TCarta* mao = malloc(5 * sizeof(TCarta));
 
+    //lendo arquivos
+    lerArquivoTarefas(Tarefas);
     numeroCartas = lerArquivo(cartas);
     printf("Numero de cartas lidas: %d\n", numeroCartas);
 
@@ -30,6 +34,9 @@ int main()
 
     while(1){
         escolha = menu1();
+
+        
+
         switch(escolha){
             case 1:
                 sortearCartas(&Tcabeca, 5,numeroCartasRestantes);
@@ -47,7 +54,8 @@ int main()
     {
         REPEAT(40, "\n");
         menuTurno(turno);
-        printf("-------------------------------------------------------");
+        //imprimirTarefas(Tarefas, 10, turno);
+        printf("\n-------------------------------------------------------");
         printf("\nMao:\t");
         imprimirCartas(Tcabeca,5);
         escolha = menu2(bonus);
