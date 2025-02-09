@@ -18,5 +18,5 @@ if ($?) { gcc *.c -o Main } ; if ($?) { .\Main }
 ### 3️⃣ Executar o jogo
 Se estiver no Windows, use:
 ```sh
-jogo.exe
+Main.exe
 ```
