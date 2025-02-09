@@ -9,7 +9,7 @@ int main()
     
 
     int numeroCartas, escolha, numeroCartasRestantes = 52;
-    int p1,p2, quantidade;
+    int p1,p2, quantidade, turno = 1;
 
     Tno* Tcabeca = NULL;
 
@@ -46,6 +46,7 @@ int main()
     while (1)
     {
         REPEAT(40, "\n");
+        menuTurno(turno);
         printf("-------------------------------------------------------");
         printf("\nMao:\t");
         imprimirCartas(Tcabeca,5);
@@ -68,6 +69,9 @@ int main()
                 break;
             case 3:
                 cumprirTarefas();
+                break;
+            case 5:
+                turno++;
                 break;
             case 6:
                 return 0;
