@@ -45,11 +45,14 @@ int menu2(Bonus* bonus){
     return escolha;
 }
 
-void menuTurno(int turno){
+void menuTurno(int turno, Fila *fila){
 
     printf("-------------------------------------------------------");
     printf("\nTurno: %d", turno);
     printf("\nTarefas: ");
-
+    bool status;
+    Tarefa primeira = espiarFila(fila, &status);
+    printf("%d (P-%d E-%d O-%d C-%d)",primeira.prazo, primeira.pausDemandados, primeira.espadasDemandadas, primeira.ourosDemandados, primeira.copasDemandadas);
+    
 
 }

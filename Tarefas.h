@@ -30,7 +30,7 @@ typedef struct{
 Fila* criarFila();
 int tamanhoFila(Fila* fila);
 bool estaVazia(Fila* fila);
-int espiarFila(Fila* fila, bool *status);
+Tarefa espiarFila(Fila* fila, bool *status);
 void adicionarFila(Fila* fila, Tarefa tarefa);
-int removerFila(Fila* fila, bool *status);
+Tarefa removerFila(Fila* fila, bool *status);
 

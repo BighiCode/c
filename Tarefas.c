@@ -47,9 +47,11 @@ bool estaVazia(Fila *f){
 
 Tarefa espiarFila(Fila *f, bool *status){
 
+    Tarefa defaultTarefa = {0};
+
     if (estaVazia(f)){
         *status = false;
-        return f->head->tarefa;
+        return defaultTarefa;
     }else{
         *status = true;
         return f->head->tarefa;
@@ -58,6 +60,7 @@ Tarefa espiarFila(Fila *f, bool *status){
 }
 
 void adicionarFila(Fila *f, Tarefa tarefa){
+    printf("AAAAAAAAAAAAA");
     Node *novo = malloc(sizeof(Node));
     novo->tarefa = tarefa;
     novo->next = NULL;
@@ -72,7 +75,7 @@ void adicionarFila(Fila *f, Tarefa tarefa){
 }
 
 Tarefa removerFila(Fila *f, bool *status){
-    
+
     if (estaVazia(f)){
         *status = false;
         return f->head->tarefa;
