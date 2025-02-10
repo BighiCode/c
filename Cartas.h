@@ -26,3 +26,4 @@ typedef struct bonus {
 } Bonus;
 
 int lerArquivo(TCarta *cartas);
+void embaralhar(TCarta *vetor, int tamanho);

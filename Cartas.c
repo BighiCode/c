@@ -24,6 +24,23 @@ int lerArquivo(TCarta *cartas)
             i++;
         }
         fclose(arqCartas);
+        embaralhar(cartas, 52);
         return i;
+    }
+
+    
+
+}
+
+void embaralhar(TCarta *vetor, int tamanho) {
+    srand(time(NULL)); // Inicializa a semente do gerador de números aleatórios
+
+    for (int i = tamanho - 1; i > 0; i--) {
+        int j = rand() % (i + 1); // Sorteia um índice entre 0 e i
+
+        // Troca vetor[i] com vetor[j] corretamente
+        TCarta temp = vetor[i];
+        vetor[i] = vetor[j];
+        vetor[j] = temp;
     }
 }
