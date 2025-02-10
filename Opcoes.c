@@ -284,4 +284,22 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus) {
     
 }
 
-void cumprirTarefas(){}
+void cumprirTarefas(Bonus *bonus,Fila* fila){
+
+    bool status;
+    Tarefa tarefa = espiarFila(fila, &status);
+
+    if(bonus->copas >= tarefa.copasDemandadas && bonus->espadas >= tarefa.espadasDemandadas && bonus->ouros >= tarefa.ourosDemandados && bonus->paus >= tarefa.pausDemandados){
+        bonus->copas -= tarefa.copasDemandadas;
+        bonus->espadas -= tarefa.espadasDemandadas;
+        bonus->ouros -= tarefa.ourosDemandados;
+        bonus->paus -= tarefa.pausDemandados;
+        int premio = tarefa.premioDeRembaralhamento;
+        bonus->copas += premio;
+        bonus->espadas += premio;
+        bonus->ouros += premio;
+        bonus->paus += premio;
+        removerFila(fila, &status);
+    }
+
+}

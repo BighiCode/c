@@ -76,17 +76,24 @@ int main()
                 descartarCartas(&Tcabeca, quantidade, bonus);
                 break;
             case 3:
-                cumprirTarefas();
+                cumprirTarefas( bonus,fila);
                 break;
             case 5:
+            
                 turno++;
+
                 for(int i = 0; i < 10; i++){
                    
                     if(Tarefas[i].turnoDeAparecimento == turno){
                         adicionarFila(fila, Tarefas[i]);
                     }
                 }
+
+                diminuirPrazo(fila);
+                fiscalizador(fila);
+
                 break;
+                
             case 6:
                 return 0;
             default:
