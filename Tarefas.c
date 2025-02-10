@@ -60,7 +60,6 @@ Tarefa espiarFila(Fila *f, bool *status){
 }
 
 void adicionarFila(Fila *f, Tarefa tarefa){
-    printf("AAAAAAAAAAAAA");
     Node *novo = malloc(sizeof(Node));
     novo->tarefa = tarefa;
     novo->next = NULL;
@@ -86,6 +85,35 @@ Tarefa removerFila(Fila *f, bool *status){
         f->tamanho--;
         return aux->tarefa;
     }
+}
+
+void diminuirPrazo(Fila *f){
+
+    if (estaVazia(f)) {
+        printf(" Nenhuma tarefa na fila.\n");
+        return;
+    }
+
+    Node* atual = f->head;
+    while (atual != NULL) {
+        Tarefa *t = &atual->tarefa;
+        t->prazo = t->prazo - 1;
+        atual = atual->next;
+    }
+
+}
+
+void fiscalizador(Fila *f) {
+
+    if(estaVazia(f)){
+        printf(" Nenhuma tarefa na fila.\n");
+        return;
+    }
+    bool status;
+    if(f->head->tarefa.prazo <= 0){
+        removerFila(f, &status);
+    }
+
 }
 
 

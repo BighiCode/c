@@ -33,4 +33,5 @@ bool estaVazia(Fila* fila);
 Tarefa espiarFila(Fila* fila, bool *status);
 void adicionarFila(Fila* fila, Tarefa tarefa);
 Tarefa removerFila(Fila* fila, bool *status);
-
+void diminuirPrazo(Fila *f);
+void fiscalizador(Fila *f);
