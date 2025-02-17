@@ -76,3 +76,9 @@ void removerCartas(Tno** cabeca, Tno* carta) {
     free(atual);
     
 }
+
+void copiarParaMao(Tno** cabeca, Tno** mao) {
+    
+    
+    
+}
