@@ -12,3 +12,4 @@ void imprimirCartas(Tno* cabeca, int quantidade);
 void removerCartas(Tno** head,Tno *nodeToRemove);
 void copiarPrimeiroParaMao(Tno** cabeca, Tno** mao);
 int getTamanhoLista(Tno* cabeca);
+void printGrandesCartas(TCarta carta);

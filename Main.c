@@ -4,6 +4,8 @@
 
 int main()
 {
+    SetConsoleOutputCP(65001);
+
     time_t currentTime = time(NULL);
     srand((unsigned int)currentTime);
     
