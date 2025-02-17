@@ -43,15 +43,48 @@ void inserirNoFinal(Tno** cabeca, TCarta carta) {
 
 void imprimirCartas(Tno* cabeca, int quantidade) {
     Tno* atual = cabeca;
+    TCarta *cartas = malloc( quantidade*sizeof(TCarta));
     while (atual != NULL && quantidade > 0) {
-        printf("|%s-%c|\t", atual->carta.face, atual->carta.naipe);
-        
+        //printf("|%s-%c|\t", atual->carta.face, atual->carta.naipe);
+
+        printGrandesCartas(atual->carta, quantidade);
         atual = atual->prox;
         quantidade--;
     }
-    printf("\nposicao:");
-    printf("  1\t  2\t  3\t  4\t  5\n");
+
+
+    //printf("\nposicao:");
+    //printf("  1\t  2\t  3\t  4\t  5\n");
 }
+
+void printGrandesCartas(TCarta carta, int pos) {
+    
+    printf("\n _________");
+    printf("\n|\t  |");
+    printf("\n| %-2s\t  |", carta.face);
+    printf("\n|\t  |");
+{
+    if(carta.naipe == 'C'){
+        printf("\n|    ♥\t  |");
+    }
+    if(carta.naipe == 'E'){
+        printf("\n|    ♠\t  |",4);
+    }
+    if(carta.naipe == 'P'){
+        printf("\n|    ♣\t  |",2);
+    }
+    if(carta.naipe == 'O'){
+        printf("\n|    ♦\t  |",1);
+    }
+}
+    printf("\n|\t  |");
+    printf("\n|\t%-2s|", carta.face);
+    printf("\n|_________|" );
+    printf("\n%d°",5-pos+1);
+
+}
+
+
 
 void removerCartas(Tno** cabeca, Tno* carta) {
     
@@ -75,4 +108,24 @@ void removerCartas(Tno** cabeca, Tno* carta) {
     
     free(atual);
     
+}
+
+void copiarPrimeiroParaMao(Tno** cabeca, Tno** mao) {
+    if (*cabeca == NULL) {
+        return;
+    }
+    Tno* atualcabeca = *cabeca;
+    inserirNoFinal(mao, atualcabeca->carta);
+    *cabeca = atualcabeca->prox;
+    free(atualcabeca);
+}
+
+int getTamanhoLista(Tno* cabeca) {
+    int tamanho = 0;
+    Tno* atual = cabeca;
+    while (atual != NULL) {
+        tamanho++;
+        atual = atual->prox;
+    }
+    return tamanho;
 }

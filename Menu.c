@@ -33,12 +33,12 @@ int menu2(Bonus* bonus){
     printf("copas:%d espadas:%d ouros:%d paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
     printf("-------------------------------------------------------");
     printf("\nMenu\n\n");
-    n++;printf("%d. reposicionar cartas\n",n);
-    n++;printf("%d. descartar cartas\n",n);
-    n++;printf("%d. cumprir tarefas\n",n);
-    n++;printf("%d. #reenbaralhar tudo\n",n);
-    n++;printf("%d. finalizar turno\n",n);
-    n++;printf("%d. Sair\n",n);
+    n++;printf("%d. reposicionar cartas\t",n);
+    n++;printf("%d. descartar cartas\t",n);
+    n++;printf("%d. cumprir tarefas\t",n);
+    n++;printf("%d. #reenbaralhar tudo\t",n);
+    n++;printf("%d. finalizar turno\t",n);
+    n++;printf("%d. Sair\t",n);
 
     printf("Escolha uma opcao: ");
     scanf("%d", &escolha);

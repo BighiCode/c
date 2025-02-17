@@ -1,23 +1,8 @@
 #include "Opcoes.h"
 
 
-/**
- * ARQ opcoes
- * 
- * @return ponteiro para a nova mão
- */
-void sortearCartas(Tno** cabeca, int quantidade, int numCartasRestantes) {
 
-    TCarta mao[quantidade];
 
-    for(int i = 0; i < quantidade; i++){
-        mao[i] = sortearCarta(cabeca, numCartasRestantes);
-        numCartasRestantes--;
-    }
-
-    inserirCartas(cabeca, mao, quantidade);
-
-}
 
 /**
  * ARQ opcoes
@@ -26,27 +11,6 @@ void sortearCartas(Tno** cabeca, int quantidade, int numCartasRestantes) {
  * dps remove elas da lista
  * @return cartas sorteadas
  */
-TCarta sortearCarta(Tno** cabeca, int numCartasRestantes) {
-    if (*cabeca == NULL) {
-        printf("Erro: lista de cartas vazia\n");
-        exit(EXIT_FAILURE);
-    }
-
-    Tno *temp = *cabeca;
-    if(numCartasRestantes == 0){printf("Erro1: lista de cartas menor que a quantidade solicitada\n"); return temp->carta;}
-    int posicao = rand() % numCartasRestantes;
-    for (int i = 0; i < posicao; i++) {
-        if (temp->prox == NULL) {
-            printf("Erro2: lista de cartas menor que a quantidade solicitada\n");
-            exit(EXIT_FAILURE);
-        }
-        temp = temp->prox;
-    }
-    
-    TCarta carta = (temp)->carta;
-    removerCartas(cabeca, temp);
-    return carta;
-}
 
 void reposicionarCartas(Tno** cabeca, int p1, int p2) {
     if (*cabeca == NULL || p1 == p2) {
@@ -97,6 +61,25 @@ void reposicionarCartas(Tno** cabeca, int p1, int p2) {
     carta2->prox = prox1;
 }
 
+/*
+comprar as n primeiras cartas
+*/
+int comprarCartas(Tno** mao, Tno **cabeca,int n) {
+    if (*cabeca == NULL) {
+        return 0;
+    }
+
+    //if(n - getTamanhoLista(*mao) < 5){
+
+        for (int i = 0; i < n; i++) {
+            copiarPrimeiroParaMao(cabeca, mao);
+            printf("Carta comprada: %s %c\n", (*mao)->carta.face, (*mao)->carta.naipe);
+        }
+
+//}
+
+    return n;
+}
 
 void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus) {
     if (*cabeca == NULL) {
