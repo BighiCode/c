@@ -47,17 +47,18 @@ void imprimirCartas(Tno* cabeca, int quantidade) {
     while (atual != NULL && quantidade > 0) {
         //printf("|%s-%c|\t", atual->carta.face, atual->carta.naipe);
 
-        printGrandesCartas(atual->carta);
+        printGrandesCartas(atual->carta, quantidade);
         atual = atual->prox;
         quantidade--;
     }
 
 
-    printf("\nposicao:");
-    printf("  1\t  2\t  3\t  4\t  5\n");
+    //printf("\nposicao:");
+    //printf("  1\t  2\t  3\t  4\t  5\n");
 }
 
-void printGrandesCartas(TCarta carta) {
+void printGrandesCartas(TCarta carta, int pos) {
+    
     printf("\n _________");
     printf("\n|\t  |");
     printf("\n| %-2s\t  |", carta.face);
@@ -79,8 +80,8 @@ void printGrandesCartas(TCarta carta) {
     printf("\n|\t  |");
     printf("\n|\t%-2s|", carta.face);
     printf("\n|_________|" );
+    printf("\n%d°",5-pos+1);
 
-    
 }
 
 
