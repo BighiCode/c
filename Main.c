@@ -32,7 +32,6 @@ int main()
     printf("Numero de cartas lidas: %d\n", numeroCartas);
 
     inserirCartas(&Tcabeca, cartas, numeroCartas);
-    comprarCartas(&TCmao, &Tcabeca, 5);
 
     while(1){
         escolha = menu1();
@@ -82,6 +81,8 @@ int main()
             case 5:
             
                 turno++;
+
+                numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
 
                 for(int i = 0; i < 10; i++){
                    

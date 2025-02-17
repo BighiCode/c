@@ -77,8 +77,22 @@ void removerCartas(Tno** cabeca, Tno* carta) {
     
 }
 
-void copiarParaMao(Tno** cabeca, Tno** mao) {
-    
-    
-    
+void copiarPrimeiroParaMao(Tno** cabeca, Tno** mao) {
+    if (*cabeca == NULL) {
+        return;
+    }
+    Tno* atualcabeca = *cabeca;
+    inserirNoFinal(mao, atualcabeca->carta);
+    *cabeca = atualcabeca->prox;
+    free(atualcabeca);
+}
+
+int getTamanhoLista(Tno* cabeca) {
+    int tamanho = 0;
+    Tno* atual = cabeca;
+    while (atual != NULL) {
+        tamanho++;
+        atual = atual->prox;
+    }
+    return tamanho;
 }

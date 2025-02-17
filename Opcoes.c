@@ -67,11 +67,16 @@ comprar as n primeiras cartas
 int comprarCartas(Tno** mao, Tno **cabeca,int n) {
     if (*cabeca == NULL) {
         return 0;
-    }  
-
-    for (int i = 0; i < n; i++) {
-        copiarParaMao(cabeca, mao);
     }
+
+    //if(n - getTamanhoLista(*mao) < 5){
+
+        for (int i = 0; i < n; i++) {
+            copiarPrimeiroParaMao(cabeca, mao);
+            printf("Carta comprada: %s %c\n", (*mao)->carta.face, (*mao)->carta.naipe);
+        }
+
+//}
 
     return n;
 }
