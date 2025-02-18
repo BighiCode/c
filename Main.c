@@ -6,45 +6,41 @@
 
 int main()
 {
+//inicializando funcoes de bibliotecas
     SetConsoleOutputCP(65001);
-
     time_t currentTime = time(NULL);
     srand((unsigned int)currentTime);
     
-
-
+//inicializando variaveis
+    TCarta cartas[52],carta;
     Tarefa Tarefas[10];
-    Fila* fila = criarFila();
-
     int numeroCartas, escolha, numeroCartasRestantes = 52;
     int p1,p2, quantidade, turno = 0;
-
     Tno* Tcabeca = NULL;
     Tno* TCmao = NULL;
+
+//lendo arquivos 
+    lerArquivoTarefas(Tarefas);
+    numeroCartas = lerArquivo(cartas);
+    printf("Numero de cartas lidas: %d\n", numeroCartas);
+        
+//chamando funções   
+    Fila* fila = criarFila();
     Pilha* pilha = (Pilha*) malloc(sizeof(Pilha));
-
     inicializarPilha(pilha);
-
     Bonus *bonus = (Bonus*)malloc(sizeof(Bonus));
     bonus->copas = 0;
     bonus->espadas = 0;
     bonus->ouros = 0;
     bonus->paus = 0;
-
-    TCarta cartas[52],carta;
-   
-    //lendo arquivos
-    lerArquivoTarefas(Tarefas);
-    numeroCartas = lerArquivo(cartas);
-    printf("Numero de cartas lidas: %d\n", numeroCartas);
-
-    //inserirCartas(&Tcabeca, cartas, numeroCartas);
+    //inserirCartas(&Tcabeca, cartas, numeroCartas); legacy
     inserirCartasNaPilha(pilha, cartas, numeroCartas);
 
-    while(1){
-        escolha = menu1();
 
-        
+
+    while(1){
+
+        escolha = menu1();
 
         switch(escolha){
             case 1:
