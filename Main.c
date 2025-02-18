@@ -69,12 +69,13 @@ int main()
 
         menuTurno(turno, fila);
 
-        printf("\n-------------------------------------------------------");
+        
         printf("\nMao:\t");
 
         imprimirCartas(TCmao,5);
-
         escolha = menu2(bonus);
+
+        
 
 
     
