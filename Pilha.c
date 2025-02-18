@@ -28,7 +28,7 @@ void empilhar(Pilha* p, TCarta carta) {
     }
     p->topo++;
     p->itens[p->topo] = carta;
-    printf("Carta %s empilhada.\n", carta.nome);
+    //printf("Carta %s empilhada.\n", carta.nome);
 }
 
 // Desempilha uma carta

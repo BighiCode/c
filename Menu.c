@@ -25,12 +25,12 @@ int menu1(){
  * 3. Sair
  * @returns escolha
  */
-int menu2(Bonus* bonus){
+int menu2(Bonus* bonus, int bonusReembaralhamento){
     int escolha;
     int n = 0;
     printf("\n-------------------------------------------------------");
-    printf("\nbonus:\n");
-    printf("copas:%d espadas:%d ouros:%d paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
+    printf("\nbonus de reembaralhamento:\t %d\n", bonusReembaralhamento);
+    printf("bonus de cartas:\t\t copas:%d espadas:%d ouros:%d paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
     printf("-------------------------------------------------------");
     printf("\nMenu\n\n");
     n++;printf("%d. reposicionar cartas\t",n);

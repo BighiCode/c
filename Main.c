@@ -19,6 +19,7 @@ int main()
     Tno* Tcabeca = NULL;
     Tno* TCmao = NULL;
     TCarta *descartados;
+    int bonusReembaralhamento = 0;
 
 //lendo arquivos 
     lerArquivoTarefas(Tarefas);
@@ -42,7 +43,7 @@ int main()
     inserirCartasNaPilha(pilha, cartas, numeroCartas);
 
 
-
+//menu 1
     while(1){
 
         escolha = menu1();
@@ -60,6 +61,7 @@ int main()
         break;
     }
 
+//menu2
     while (1)
     {
         //"limpa tela"
@@ -73,7 +75,7 @@ int main()
 
         imprimirCartas(TCmao,5);
         
-        escolha = menu2(bonus);
+        escolha = menu2(bonus, bonusReembaralhamento);
 
     
         switch(escolha){
@@ -96,12 +98,18 @@ int main()
                 descartarCartas(&TCmao, quantidade, bonus, descartados);
                 inserirCartasNaPilha(descarte, descartados, quantidade);
                 free(descartados);
-                exibirPilha(descarte);
                 break;
 
             case 3:
-                cumprirTarefas( bonus,fila);
+                bonusReembaralhamento = cumprirTarefas(bonus,fila);
                 break;
+
+            case 4:
+                if(bonusReembaralhamento > 0){
+                    bonusReembaralhamento -= 1;
+                    //
+                    break;
+                }
 
             case 5:
                 turno++;
