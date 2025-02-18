@@ -19,7 +19,8 @@ int main()
     Tno* Tcabeca = NULL;
     Tno* TCmao = NULL;
     TCarta *descartados;
-    int bonusReembaralhamento = 1;
+    int bonusReembaralhamento = 0;
+    int numeroDeCartasDescartadas = 0;
 
 //lendo arquivos 
     lerArquivoTarefas(Tarefas);
@@ -68,7 +69,7 @@ int main()
         //"limpa tela"
         REPEAT(100, "\n");
 
-        menuMonte(numeroCartasRestantes);
+        menuMonte(numeroCartasRestantes,numeroDeCartasDescartadas);
 
         menuTurno(turno, fila);
 
@@ -94,7 +95,10 @@ int main()
                 printf("Remover cartas\n");
                 printf("Quantidade: ");
                 scanf("%d", &quantidade);
-                numeroCartasRestantes -= quantidade;
+
+                numeroDeCartasDescartadas += quantidade;
+                
+                
                 descartados = (TCarta*)malloc(quantidade*sizeof(TCarta));
                 descartarCartas(&TCmao, quantidade, bonus, descartados);
                 inserirCartasNaPilha(descarte, descartados, quantidade);
@@ -122,6 +126,7 @@ int main()
                     //não sei
                     embaralhar(aux,numeroCartas);
                     numeroCartasRestantes = numeroCartas;
+                    numeroDeCartasDescartadas = 0;
                     inserirCartasNaPilha(pilha, cartas, numeroCartas);
                     numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
                     break;

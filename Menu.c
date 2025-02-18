@@ -36,9 +36,9 @@ int menu2(Bonus* bonus, int bonusReembaralhamento){
     n++;printf("%d. reposicionar cartas\t",n);
     n++;printf("%d. descartar cartas\t",n);
     n++;printf("%d. cumprir tarefas\t",n);
-    n++;printf("%d. #reenbaralhar tudo\t",n);
+    n++;printf("%d. reenbaralhar tudo\t",n);
     n++;printf("%d. finalizar turno\t",n);
-    n++;printf("%d. Sair\t",n);
+    n++;printf("%d. sair\t",n);
 
     printf("Escolha uma opcao: ");
     scanf("%d", &escolha);
@@ -68,8 +68,8 @@ void menuTurno(int turno, Fila *fila) {
     printf("\n-------------------------------------------------------\n");
 }
 
-void menuMonte(int numeroCartas) {
+void menuMonte(int numeroCartas, int descarte) {
     printf("-------------------------------------------------------");
-    printf("\nMonte(%d)\tDescarte(%d)\n", numeroCartas, 52 - numeroCartas - 5);
+    printf("\nMonte(%d)\tDescarte(%d)\n", numeroCartas, descarte);
     printf("-------------------------------------------------------\n");
 }
