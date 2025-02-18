@@ -20,3 +20,5 @@ void limparPilha(Pilha* pilha);
 void inserirCartasNaPilha(Pilha* pilha, TCarta* cartas, int numCartas);
 int comprarCartasDaPilha(Tno** mao, Pilha *pilha,int n);
 int getTamanhoPilha(Pilha* pilha);
+int TranferirPilha(Pilha *pilha, Pilha *descarte,int n);
+void passarPilhaParaVetor(Pilha *pilha, TCarta *v);
