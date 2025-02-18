@@ -1,48 +1,51 @@
 #include "Opcoes.h"
+#include "Pilha.h"
+
 
 #define REPEAT(n, str) for (int i = 0; i < (n); i++) printf(str)
 
 int main()
 {
+//inicializando funcoes de bibliotecas
     SetConsoleOutputCP(65001);
-
     time_t currentTime = time(NULL);
     srand((unsigned int)currentTime);
     
-
-
+//inicializando variaveis
+    TCarta cartas[52],carta;
     Tarefa Tarefas[10];
-    Fila* fila = criarFila();
-
     int numeroCartas, escolha, numeroCartasRestantes = 52;
     int p1,p2, quantidade, turno = 0;
-
     Tno* Tcabeca = NULL;
     Tno* TCmao = NULL;
 
+//lendo arquivos 
+    lerArquivoTarefas(Tarefas);
+    numeroCartas = lerArquivo(cartas);
+    printf("Numero de cartas lidas: %d\n", numeroCartas);
+        
+//chamando funções   
+    Fila* fila = criarFila();
+    Pilha* pilha = (Pilha*) malloc(sizeof(Pilha));
+    inicializarPilha(pilha);
     Bonus *bonus = (Bonus*)malloc(sizeof(Bonus));
     bonus->copas = 0;
     bonus->espadas = 0;
     bonus->ouros = 0;
     bonus->paus = 0;
+    //inserirCartas(&Tcabeca, cartas, numeroCartas); legacy
+    inserirCartasNaPilha(pilha, cartas, numeroCartas);
 
-    TCarta cartas[52],carta;
-   
-    //lendo arquivos
-    lerArquivoTarefas(Tarefas);
-    numeroCartas = lerArquivo(cartas);
-    printf("Numero de cartas lidas: %d\n", numeroCartas);
 
-    inserirCartas(&Tcabeca, cartas, numeroCartas);
 
     while(1){
-        escolha = menu1();
 
-        
+        escolha = menu1();
 
         switch(escolha){
             case 1:
-                numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5);
+                //numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5);
+                numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
                 break;
             case 2:
                 return 0;
@@ -54,9 +57,8 @@ int main()
 
     while (1)
     {
-        REPEAT(40, "\n");
+        REPEAT(100, "\n");
         menuTurno(turno, fila);
-        //imprimirTarefas(Tarefas, 10, turno);
         printf("\n-------------------------------------------------------");
         printf("\nMao:\t");
         imprimirCartas(TCmao,5);
@@ -84,7 +86,8 @@ int main()
             
                 turno++;
 
-                numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
+                //numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
+                numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
 
                 for(int i = 0; i < 10; i++){
                    
