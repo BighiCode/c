@@ -62,14 +62,20 @@ int main()
 
     while (1)
     {
+        //"limpa tela"
         REPEAT(100, "\n");
+
         menuTurno(turno, fila);
+
         printf("\n-------------------------------------------------------");
         printf("\nMao:\t");
+
         imprimirCartas(TCmao,5);
+        
         escolha = menu2(bonus);
     
         switch(escolha){
+
             case 1:
                 printf("Reposicionar cartas\n");
                 printf("Posicao 1: ");
@@ -78,6 +84,7 @@ int main()
                 scanf("%d", &p2);
                 reposicionarCartas(&TCmao, p1 - 1, p2 - 1);
                 break;
+
             case 2:
                 printf("Remover cartas\n");
                 printf("Quantidade: ");
@@ -87,32 +94,29 @@ int main()
                 inserirCartasNaPilha(descarte, descartados, quantidade);
                 free(descartados);
                 exibirPilha(descarte);
-                
                 break;
+
             case 3:
                 cumprirTarefas( bonus,fila);
                 break;
-            case 5:
-            
-                turno++;
 
+            case 5:
+                turno++;
                 //numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
                 numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
-
                 for(int i = 0; i < 10; i++){
                    
                     if(Tarefas[i].turnoDeAparecimento == turno){
                         adicionarFila(fila, Tarefas[i]);
                     }
                 }
-
                 diminuirPrazo(fila);
                 fiscalizador(fila);
-
                 break;
                 
             case 6:
                 return 0;
+                
             default:
                 printf("Opcao invalida\n");
                 break;
