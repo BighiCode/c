@@ -21,6 +21,9 @@ int main()
 
     Tno* Tcabeca = NULL;
     Tno* TCmao = NULL;
+    Pilha* pilha = (Pilha*) malloc(sizeof(Pilha));
+
+    inicializarPilha(pilha);
 
     Bonus *bonus = (Bonus*)malloc(sizeof(Bonus));
     bonus->copas = 0;
@@ -35,7 +38,8 @@ int main()
     numeroCartas = lerArquivo(cartas);
     printf("Numero de cartas lidas: %d\n", numeroCartas);
 
-    inserirCartas(&Tcabeca, cartas, numeroCartas);
+    //inserirCartas(&Tcabeca, cartas, numeroCartas);
+    inserirCartasNaPilha(pilha, cartas, numeroCartas);
 
     while(1){
         escolha = menu1();
@@ -44,7 +48,8 @@ int main()
 
         switch(escolha){
             case 1:
-                numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5);
+                //numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5);
+                numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
                 break;
             case 2:
                 return 0;
@@ -86,8 +91,9 @@ int main()
             
                 turno++;
 
-                numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
-
+                //numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
+                numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
+                
                 for(int i = 0; i < 10; i++){
                    
                     if(Tarefas[i].turnoDeAparecimento == turno){

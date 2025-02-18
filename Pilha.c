@@ -2,7 +2,12 @@
 
 // Inicializa a pilha vazia
 void inicializarPilha(Pilha* p) {
-    p->topo = -1;
+    if (p != NULL) {
+        p->topo = -1;
+    } else {
+        // Você pode querer tratar o erro de alguma forma, por exemplo:
+        printf("Erro: ponteiro nulo\n");
+    }
 }
 
 // Verifica se a pilha está vazia
@@ -59,4 +64,26 @@ void exibirPilha(Pilha* p) {
         }
         printf("]\n");
     }
+}
+
+void inserirCartasNaPilha(Pilha* pilha, TCarta* cartas, int numCartas){
+    for (int i = 0; i < numCartas; i++) {
+        empilhar(pilha, cartas[i]);
+    }
+}
+
+int comprarCartasDaPilha(Tno** mao, Pilha *pilha ,int n) {
+    if (pilhaVazia(pilha)) {
+        return 0;
+    }
+
+    for (int i = 0; i < n; i++) {
+        inserirNoFinal(mao, desempilhar(pilha));
+    }
+
+    return n;
+}
+
+int getTamanhoPilha(Pilha* pilha){
+    return pilha->topo + 1;
 }

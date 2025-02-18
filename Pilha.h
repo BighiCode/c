@@ -17,3 +17,6 @@ int pilhaVazia(Pilha* pilha);
 int pilhaCheia(Pilha* pilha);
 void exibirPilha(Pilha* pilha);
 void limparPilha(Pilha* pilha);
+void inserirCartasNaPilha(Pilha* pilha, TCarta* cartas, int numCartas);
+int comprarCartasDaPilha(Tno** mao, Pilha *pilha,int n);
+int getTamanhoPilha(Pilha* pilha);
