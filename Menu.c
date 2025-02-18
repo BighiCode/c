@@ -70,6 +70,6 @@ void menuTurno(int turno, Fila *fila) {
 
 void menuMonte(int numeroCartas) {
     printf("-------------------------------------------------------");
-    printf("\nMonte(%d)\tDescarte(%d)\n", numeroCartas, 52 - numeroCartas);
+    printf("\nMonte(%d)\tDescarte(%d)\n", numeroCartas, 52 - numeroCartas - 5);
     printf("-------------------------------------------------------\n");
 }

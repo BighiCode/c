@@ -62,9 +62,10 @@ void exibirPilha(Pilha* p) {
             case 'P': printf("Paus"); break;
             case 'O': printf("Ouros"); break;
         }
-        printf("]\n");
+        printf("] %d\n",i);
     }
 }
+
 
 void inserirCartasNaPilha(Pilha* pilha, TCarta* cartas, int numCartas){
     for (int i = 0; i < numCartas; i++) {
@@ -84,6 +85,20 @@ int comprarCartasDaPilha(Tno** mao, Pilha *pilha ,int n) {
     return (-1*n);
 }
 
+int TranferirPilha(Pilha *pilha, Pilha *descarte,int n) {
+   
+    for(int i = 0; i < n; i++){
+        empilhar(descarte, desempilhar(pilha));
+    }
+
+}
+
 int getTamanhoPilha(Pilha* pilha){
     return pilha->topo + 1;
+}
+
+void passarPilhaParaVetor(Pilha *pilha, TCarta *v){
+    for (int i = pilha->topo; i >= 0; i--){
+        v[i] = desempilhar(pilha);
+    }
 }

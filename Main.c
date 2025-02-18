@@ -12,14 +12,14 @@ int main()
     srand((unsigned int)currentTime);
     
 //inicializando variaveis
-    TCarta cartas[52],carta;
+    TCarta cartas[52],aux[52],carta;
     Tarefa Tarefas[10];
     int numeroCartas, escolha, numeroCartasRestantes = 52;
     int p1,p2, quantidade, turno = 0;
     Tno* Tcabeca = NULL;
     Tno* TCmao = NULL;
     TCarta *descartados;
-    int bonusReembaralhamento = 0;
+    int bonusReembaralhamento = 1;
 
 //lendo arquivos 
     lerArquivoTarefas(Tarefas);
@@ -41,6 +41,7 @@ int main()
 //inserindo 
     //inserirCartas(&Tcabeca, cartas, numeroCartas); legacy
     inserirCartasNaPilha(pilha, cartas, numeroCartas);
+    
 
 
 //menu 1
@@ -107,8 +108,25 @@ int main()
             case 4:
                 if(bonusReembaralhamento > 0){
                     bonusReembaralhamento -= 1;
-                    //
+                    //não sei
+                    descartados = (TCarta*)malloc(5*sizeof(TCarta));
+                    descartarCartas(&TCmao, 5, bonus, descartados);
+                    inserirCartasNaPilha(descarte, descartados, 5);
+                    free(descartados);
+                    TranferirPilha(pilha, descarte, numeroCartasRestantes);
+                    numeroCartasRestantes = 0;
+                    passarPilhaParaVetor(descarte,aux);
+                    for(int z = 0; z<52;z++){
+                        printf("%s\t%d\n",aux[z].nome,z);
+                    }
+                    //não sei
+                    embaralhar(aux,numeroCartas);
+                    numeroCartasRestantes = numeroCartas;
+                    inserirCartasNaPilha(pilha, cartas, numeroCartas);
+                    numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
                     break;
+                }else{
+                    printf("não foi possivel reenbaralhar, falta bonus!");
                 }
 
             case 5:
