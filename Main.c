@@ -1,4 +1,6 @@
 #include "Opcoes.h"
+#include "Pilha.h"
+
 
 #define REPEAT(n, str) for (int i = 0; i < (n); i++) printf(str)
 
@@ -54,7 +56,7 @@ int main()
 
     while (1)
     {
-        REPEAT(40, "\n");
+        REPEAT(100, "\n");
         menuTurno(turno, fila);
         //imprimirTarefas(Tarefas, 10, turno);
         printf("\n-------------------------------------------------------");

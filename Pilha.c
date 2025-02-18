@@ -1,60 +1,62 @@
 #include "Pilha.h"
 
-// Função para inicializar a pilha
+// Inicializa a pilha vazia
 void inicializarPilha(Pilha* p) {
-    p->topo = -1;  // Pilha vazia
+    p->topo = -1;
 }
 
-// Função para verificar se a pilha está vazia
+// Verifica se a pilha está vazia
 int pilhaVazia(Pilha* p) {
-    return p->topo == -1;  // Se topo for -1, a pilha está vazia
+    return p->topo == -1;
 }
 
-// Função para verificar se a pilha está cheia
+// Verifica se a pilha está cheia
 int pilhaCheia(Pilha* p) {
-    return p->topo == MAX - 1;  // Se topo atingir o máximo, a pilha está cheia
+    return p->topo == MAX - 1;
 }
 
-// Função para empilhar (inserir um item)
-void empilhar(Pilha* p, int item) {
+// Empilha uma carta
+void empilhar(Pilha* p, TCarta carta) {
     if (pilhaCheia(p)) {
         printf("Erro: Pilha cheia!\n");
         return;
     }
-    p->topo++;  // Avança o topo
-    p->itens[p->topo] = item;  // Adiciona o item na pilha
-    printf("Item %d empilhado.\n", item);
+    p->topo++;
+    p->itens[p->topo] = carta;
+    printf("Carta %s empilhada.\n", carta.nome);
 }
 
-// Função para desempilhar (remover um item)
-int desempilhar(Pilha* p) {
+// Desempilha uma carta
+TCarta desempilhar(Pilha* p) {
+    TCarta cartaVazia = {"", '\0', 0, ""};  // Carta vazia para retorno em erro
+
     if (pilhaVazia(p)) {
         printf("Erro: Pilha vazia!\n");
-        return -1;  // Retorna -1 se a pilha estiver vazia
+        return cartaVazia;
     }
-    int item = p->itens[p->topo];  // Pega o item no topo
-    p->topo--;  // Retrocede o topo
-    return item;  // Retorna o item removido
+    
+    TCarta cartaRemovida = p->itens[p->topo];
+    p->topo--;
+    return cartaRemovida;
 }
 
-// Função para visualizar o topo da pilha
-int topoPilha(Pilha* p) {
-    if (pilhaVazia(p)) {
-        printf("Erro: Pilha vazia!\n");
-        return -1;  // Retorna -1 se a pilha estiver vazia
-    }
-    return p->itens[p->topo];  // Retorna o item no topo
-}
-
-// Função para exibir os itens da pilha
+// Exibe as cartas na pilha
 void exibirPilha(Pilha* p) {
     if (pilhaVazia(p)) {
         printf("Pilha vazia!\n");
         return;
     }
-    printf("Itens da pilha: ");
-    for (int i = 0; i <= p->topo; i++) {
-        printf("%d ", p->itens[i]);
+
+    printf("\nCartas na pilha:\n");
+    for (int i = p->topo; i >= 0; i--) {
+        printf("[%s de ", p->itens[i].face);
+
+        switch (p->itens[i].naipe) {
+            case 'C': printf("Copas"); break;
+            case 'E': printf("Espadas"); break;
+            case 'P': printf("Paus"); break;
+            case 'O': printf("Ouros"); break;
+        }
+        printf("]\n");
     }
-    printf("\n");
 }
