@@ -81,13 +81,12 @@ int comprarCartas(Tno** mao, Tno **cabeca,int n) {
     return n;
 }
 
-void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus) {
+void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descarte) {
     if (*cabeca == NULL) {
         return;
     }
 
     Tno* atual = *cabeca;
-    TCarta descarte[quantidade];
 
     for (int i = 0; i < quantidade; i++) {
         descarte[i] = atual->carta;
