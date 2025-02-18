@@ -65,14 +65,18 @@ int main()
         //"limpa tela"
         REPEAT(100, "\n");
 
+        menuMonte(numeroCartasRestantes);
+
         menuTurno(turno, fila);
 
         printf("\n-------------------------------------------------------");
         printf("\nMao:\t");
 
         imprimirCartas(TCmao,5);
-        
+
         escolha = menu2(bonus);
+
+
     
         switch(escolha){
 
@@ -89,6 +93,7 @@ int main()
                 printf("Remover cartas\n");
                 printf("Quantidade: ");
                 scanf("%d", &quantidade);
+                numeroCartasRestantes -= quantidade;
                 descartados = (TCarta*)malloc(quantidade*sizeof(TCarta));
                 descartarCartas(&TCmao, quantidade, bonus, descartados);
                 inserirCartasNaPilha(descarte, descartados, quantidade);

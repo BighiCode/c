@@ -42,6 +42,7 @@ int menu2(Bonus* bonus){
 
     printf("Escolha uma opcao: ");
     scanf("%d", &escolha);
+    
     return escolha;
 }
 
@@ -65,4 +66,10 @@ void menuTurno(int turno, Fila *fila) {
     }
 
     printf("\n-------------------------------------------------------\n");
+}
+
+void menuMonte(int numeroCartas) {
+    printf("-------------------------------------------------------");
+    printf("\nMonte(%d)\tDescarte(%d)\n", numeroCartas, 52 - numeroCartas);
+    printf("-------------------------------------------------------\n");
 }
