@@ -63,7 +63,6 @@ int main()
     {
         REPEAT(100, "\n");
         menuTurno(turno, fila);
-        //imprimirTarefas(Tarefas, 10, turno);
         printf("\n-------------------------------------------------------");
         printf("\nMao:\t");
         imprimirCartas(TCmao,5);
@@ -93,7 +92,7 @@ int main()
 
                 //numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
                 numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
-                
+
                 for(int i = 0; i < 10; i++){
                    
                     if(Tarefas[i].turnoDeAparecimento == turno){
