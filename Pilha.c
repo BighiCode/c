@@ -81,7 +81,7 @@ int comprarCartasDaPilha(Tno** mao, Pilha *pilha ,int n) {
         inserirNoFinal(mao, desempilhar(pilha));
     }
 
-    return n;
+    return (-1*n);
 }
 
 int getTamanhoPilha(Pilha* pilha){

@@ -54,7 +54,7 @@ void imprimirCartas(Tno* cabeca, int quantidade) {
 
 
     //printf("\nposicao:");
-    //printf("  1\t  2\t  3\t  4\t  5\n");
+    printf("\n-------------------------------------------------------");
 }
 
 void printGrandesCartas(TCarta carta, int pos) {

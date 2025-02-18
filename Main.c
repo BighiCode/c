@@ -18,6 +18,7 @@ int main()
     int p1,p2, quantidade, turno = 0;
     Tno* Tcabeca = NULL;
     Tno* TCmao = NULL;
+    TCarta *descartados;
 
 //lendo arquivos 
     lerArquivoTarefas(Tarefas);
@@ -27,12 +28,16 @@ int main()
 //chamando funções   
     Fila* fila = criarFila();
     Pilha* pilha = (Pilha*) malloc(sizeof(Pilha));
+    Pilha* descarte = (Pilha*) malloc(sizeof(Pilha));
+    inicializarPilha(descarte);
     inicializarPilha(pilha);
     Bonus *bonus = (Bonus*)malloc(sizeof(Bonus));
     bonus->copas = 0;
     bonus->espadas = 0;
     bonus->ouros = 0;
     bonus->paus = 0;
+
+//inserindo 
     //inserirCartas(&Tcabeca, cartas, numeroCartas); legacy
     inserirCartasNaPilha(pilha, cartas, numeroCartas);
 
@@ -57,14 +62,22 @@ int main()
 
     while (1)
     {
+        //"limpa tela"
         REPEAT(100, "\n");
+
+        menuMonte(numeroCartasRestantes);
+
         menuTurno(turno, fila);
-        printf("\n-------------------------------------------------------");
+
         printf("\nMao:\t");
+
         imprimirCartas(TCmao,5);
+        
         escolha = menu2(bonus);
+
     
         switch(escolha){
+
             case 1:
                 printf("Reposicionar cartas\n");
                 printf("Posicao 1: ");
@@ -73,36 +86,40 @@ int main()
                 scanf("%d", &p2);
                 reposicionarCartas(&TCmao, p1 - 1, p2 - 1);
                 break;
+
             case 2:
                 printf("Remover cartas\n");
                 printf("Quantidade: ");
                 scanf("%d", &quantidade);
-                descartarCartas(&TCmao, quantidade, bonus);
+                numeroCartasRestantes -= quantidade;
+                descartados = (TCarta*)malloc(quantidade*sizeof(TCarta));
+                descartarCartas(&TCmao, quantidade, bonus, descartados);
+                inserirCartasNaPilha(descarte, descartados, quantidade);
+                free(descartados);
+                exibirPilha(descarte);
                 break;
+
             case 3:
                 cumprirTarefas( bonus,fila);
                 break;
-            case 5:
-            
-                turno++;
 
+            case 5:
+                turno++;
                 //numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
                 numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
-
                 for(int i = 0; i < 10; i++){
                    
                     if(Tarefas[i].turnoDeAparecimento == turno){
                         adicionarFila(fila, Tarefas[i]);
                     }
                 }
-
                 diminuirPrazo(fila);
                 fiscalizador(fila);
-
                 break;
                 
             case 6:
                 return 0;
+                
             default:
                 printf("Opcao invalida\n");
                 break;
