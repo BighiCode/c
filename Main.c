@@ -112,34 +112,32 @@ int main()
             case 4:
                 if(bonusReembaralhamento > 0){
                     bonusReembaralhamento -= 1;
-                    //não sei
+                    
                     descartados = (TCarta*)malloc(getTamanhoLista(TCmao)*sizeof(TCarta));
                     printf("descartados: %d\n",getTamanhoLista(TCmao));
-                    //must change
                     int auxdescarte = getTamanhoLista(TCmao);
-
                     descartesSemPontos(&TCmao, auxdescarte, descartados);
                     printf("descartados: %d\n",getTamanhoLista(TCmao));
-                    
                     inserirCartasNaPilha(descarte, descartados, auxdescarte);
                     free(descartados);
                     TranferirPilha(pilha, descarte, numeroCartasRestantes);
                     numeroCartasRestantes = 0;
-
+//-------------------------------------------------------------------------------------
                     //shold change
                     passarPilhaParaVetor(descarte,aux);
                     for(int z = 0; z<52;z++){
                         printf("%s\t%d\n",aux[z].nome,z);
                     }
-                    //não sei
+                    
 
-                    //should change
+                    
                     embaralhar(aux,numeroCartas);
 
 
                     numeroCartasRestantes = numeroCartas;
                     numeroDeCartasDescartadas = 0;
                     inserirCartasNaPilha(pilha, aux, numeroCartas);
+//-------------------------------------------------------------------------------------
                     numeroCartasRestantes += comprarCartasDaPilha(&TCmao, pilha, 5);
                     break;
                 }else{

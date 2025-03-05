@@ -102,3 +102,9 @@ void passarPilhaParaVetor(Pilha *pilha, TCarta *v){
         v[i] = desempilhar(pilha);
     }
 }
+
+void embaralharPilha(Pilha *pilha){
+    passarPilhaParaVetor(pilha, pilha->itens);
+    embaralhar(pilha->itens, pilha->topo + 1);
+    inserirCartasNaPilha(pilha, pilha->itens, pilha->topo + 1);
+}
