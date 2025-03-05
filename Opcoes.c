@@ -282,3 +282,22 @@ int cumprirTarefas(Bonus *bonus,Fila* fila){
     }
 
 }
+
+void descartesSemPontos(Tno** cabeca, int quantidade, TCarta* descarte){
+    
+    if (*cabeca == NULL) {
+        return;
+    }
+
+    Tno* atual = *cabeca;
+
+    for (int i = 0; i < quantidade; i++) {
+        descarte[i] = atual->carta;
+        atual = atual->prox;
+    }
+
+    for (int i = 0; i < quantidade; i++) {
+         removerCartas(cabeca, *cabeca);
+    }
+    
+}

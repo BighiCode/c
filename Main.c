@@ -75,7 +75,7 @@ int main()
 
         printf("\nMao:\t");
 
-        imprimirCartas(TCmao,5);
+        imprimirCartas(TCmao,getTamanhoLista(TCmao));
         
         escolha = menu2(bonus, bonusReembaralhamento);
 
@@ -113,27 +113,40 @@ int main()
                 if(bonusReembaralhamento > 0){
                     bonusReembaralhamento -= 1;
                     //não sei
-                    descartados = (TCarta*)malloc(5*sizeof(TCarta));
-                    descartarCartas(&TCmao, 5, bonus, descartados);
-                    inserirCartasNaPilha(descarte, descartados, 5);
+                    descartados = (TCarta*)malloc(getTamanhoLista(TCmao)*sizeof(TCarta));
+                    printf("descartados: %d\n",getTamanhoLista(TCmao));
+                    //must change
+                    int auxdescarte = getTamanhoLista(TCmao);
+
+                    descartesSemPontos(&TCmao, auxdescarte, descartados);
+                    printf("descartados: %d\n",getTamanhoLista(TCmao));
+                    
+                    inserirCartasNaPilha(descarte, descartados, auxdescarte);
                     free(descartados);
                     TranferirPilha(pilha, descarte, numeroCartasRestantes);
                     numeroCartasRestantes = 0;
+
+                    //shold change
                     passarPilhaParaVetor(descarte,aux);
                     for(int z = 0; z<52;z++){
                         printf("%s\t%d\n",aux[z].nome,z);
                     }
                     //não sei
+
+                    //should change
                     embaralhar(aux,numeroCartas);
+
+
                     numeroCartasRestantes = numeroCartas;
                     numeroDeCartasDescartadas = 0;
-                    inserirCartasNaPilha(pilha, cartas, numeroCartas);
-                    numeroCartasRestantes+= comprarCartasDaPilha(&TCmao, pilha, 5 - getTamanhoLista(TCmao));
+                    inserirCartasNaPilha(pilha, aux, numeroCartas);
+                    numeroCartasRestantes += comprarCartasDaPilha(&TCmao, pilha, 5);
                     break;
                 }else{
                     printf("não foi possivel reenbaralhar, falta bonus!");
+                    break;
                 }
-
+                    
             case 5:
                 turno++;
                 //numeroCartasRestantes+= comprarCartas(&TCmao, &Tcabeca, 5 - getTamanhoLista(TCmao));
