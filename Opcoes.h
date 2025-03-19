@@ -10,4 +10,5 @@ int cumprirTarefas(Bonus *bonus,Fila* fila, int *antecendencia);
 int comprarCartas(Tno** mao, Tno **cabeca,int n);
 void descartesSemPontos(Tno** cabeca, int quantidade, TCarta* descarte);
 void iniciaBonus(Bonus* bonus);
+int somaBonus(Bonus* bonus);
 #endif

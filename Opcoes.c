@@ -312,3 +312,6 @@ void iniciaBonus(Bonus* bonus){
     bonus->ouros = 0;
     bonus->paus = 0;
 }
+int somaBonus(Bonus* bonus){
+    return bonus->copas + bonus->espadas + bonus->ouros + bonus->paus;
+}

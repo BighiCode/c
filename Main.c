@@ -13,6 +13,7 @@ int main()
     
 //inicializando variaveis
     int PontuacaoFinal = 0;
+    int PMin = 0;
     int *antecedencia = (int*)malloc(sizeof(int));
     *antecedencia = 0;
     TCarta cartas[52],aux[52],carta;
@@ -175,6 +176,8 @@ int main()
             
         }
     }
+
+    PontuacaoFinal = PMin * ( ((*antecedencia) * (somaBonus(bonusUSADO))) + (somaBonus(bonus)/2) ) - somaBonus(desbonusTarefas);
     
     return 0;
 }
