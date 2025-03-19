@@ -81,25 +81,17 @@ int comprarCartas(Tno** mao, Tno **cabeca,int n) {
     return n;
 }
 
-void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus) {
+void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descarte) {
     if (*cabeca == NULL) {
         return;
     }
 
     Tno* atual = *cabeca;
-    TCarta descarte[quantidade];
 
     for (int i = 0; i < quantidade; i++) {
         descarte[i] = atual->carta;
         atual = atual->prox;
     }
-
-    printf("Cartas descartadas:\n");
-    for (int i = 0; i < quantidade; i++)
-    {
-        printf("%s %c\t", descarte[i].face, descarte[i].naipe);
-    }
-    printf("\n");
 
     for (int i = 0; i < quantidade; i++) {
          removerCartas(cabeca, *cabeca);
@@ -267,22 +259,45 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus) {
     
 }
 
-void cumprirTarefas(Bonus *bonus,Fila* fila){
+int cumprirTarefas(Bonus *bonus,Fila* fila){
 
     bool status;
     Tarefa tarefa = espiarFila(fila, &status);
-
+    int premio = 0;
     if(bonus->copas >= tarefa.copasDemandadas && bonus->espadas >= tarefa.espadasDemandadas && bonus->ouros >= tarefa.ourosDemandados && bonus->paus >= tarefa.pausDemandados){
         bonus->copas -= tarefa.copasDemandadas;
         bonus->espadas -= tarefa.espadasDemandadas;
         bonus->ouros -= tarefa.ourosDemandados;
         bonus->paus -= tarefa.pausDemandados;
-        int premio = tarefa.premioDeRembaralhamento;
+        premio = tarefa.premioDeRembaralhamento;
         bonus->copas += premio;
         bonus->espadas += premio;
         bonus->ouros += premio;
         bonus->paus += premio;
         removerFila(fila, &status);
+        return premio;
+    }else{
+        printf("\nNao foi possivel cumprir a tarefa\n");
+        return 0;
     }
 
+}
+
+void descartesSemPontos(Tno** cabeca, int quantidade, TCarta* descarte){
+    
+    if (*cabeca == NULL) {
+        return;
+    }
+
+    Tno* atual = *cabeca;
+
+    for (int i = 0; i < quantidade; i++) {
+        descarte[i] = atual->carta;
+        atual = atual->prox;
+    }
+
+    for (int i = 0; i < quantidade; i++) {
+         removerCartas(cabeca, *cabeca);
+    }
+    
 }

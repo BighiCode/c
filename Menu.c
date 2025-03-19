@@ -25,23 +25,24 @@ int menu1(){
  * 3. Sair
  * @returns escolha
  */
-int menu2(Bonus* bonus){
+int menu2(Bonus* bonus, int bonusReembaralhamento){
     int escolha;
     int n = 0;
     printf("\n-------------------------------------------------------");
-    printf("\nbonus:\n");
-    printf("copas:%d espadas:%d ouros:%d paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
+    printf("\nbonus de reembaralhamento:\t %d\n", bonusReembaralhamento);
+    printf("bonus de cartas:\t\t copas:%d espadas:%d ouros:%d paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
     printf("-------------------------------------------------------");
     printf("\nMenu\n\n");
     n++;printf("%d. reposicionar cartas\t",n);
     n++;printf("%d. descartar cartas\t",n);
     n++;printf("%d. cumprir tarefas\t",n);
-    n++;printf("%d. #reenbaralhar tudo\t",n);
+    n++;printf("%d. reenbaralhar tudo\t",n);
     n++;printf("%d. finalizar turno\t",n);
-    n++;printf("%d. Sair\t",n);
+    n++;printf("%d. sair\t",n);
 
     printf("Escolha uma opcao: ");
     scanf("%d", &escolha);
+    
     return escolha;
 }
 
@@ -65,4 +66,10 @@ void menuTurno(int turno, Fila *fila) {
     }
 
     printf("\n-------------------------------------------------------\n");
+}
+
+void menuMonte(int numeroCartas, int descarte) {
+    printf("-------------------------------------------------------");
+    printf("\nMonte(%d)\tDescarte(%d)\n", numeroCartas, descarte);
+    printf("-------------------------------------------------------\n");
 }
