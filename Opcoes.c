@@ -301,3 +301,10 @@ void descartesSemPontos(Tno** cabeca, int quantidade, TCarta* descarte){
     }
     
 }
+
+void iniciaBonus(Bonus* bonus){
+    bonus->copas = 0;
+    bonus->espadas = 0;
+    bonus->ouros = 0;
+    bonus->paus = 0;
+}

@@ -9,4 +9,5 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 int cumprirTarefas(Bonus *bonus,Fila* fila);
 int comprarCartas(Tno** mao, Tno **cabeca,int n);
 void descartesSemPontos(Tno** cabeca, int quantidade, TCarta* descarte);
+void iniciaBonus(Bonus* bonus);
 #endif

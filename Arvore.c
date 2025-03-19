@@ -1,5 +1,10 @@
 #include   "Arvore.h"
 
+
+NoArvore *criarArvore() {
+    return NULL;
+}
+
 NoArvore *inserir(NoArvore *raiz, int valor) {
     if (raiz == NULL) {
         raiz = malloc(sizeof(NoArvore));

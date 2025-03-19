@@ -31,14 +31,18 @@ int main()
 //chamando funções   
     Fila* fila = criarFila();
     Pilha* pilha = (Pilha*) malloc(sizeof(Pilha));
+
     Pilha* descarte = (Pilha*) malloc(sizeof(Pilha));
+    NoArvore *arvoreDescarte = criarArvore();// aponta pra NULL kkkkkkkkk
+
     inicializarPilha(descarte);
     inicializarPilha(pilha);
     Bonus *bonus = (Bonus*)malloc(sizeof(Bonus));
-    bonus->copas = 0;
-    bonus->espadas = 0;
-    bonus->ouros = 0;
-    bonus->paus = 0;
+    Bonus *bonusUSADO = (Bonus*)malloc(sizeof(Bonus));
+    Bonus *desbonusTarefas = (Bonus*)malloc(sizeof(Bonus));
+    iniciaBonus(bonus);
+    iniciaBonus(bonusUSADO);
+    iniciaBonus(desbonusTarefas);
 
 //inserindo 
     //inserirCartas(&Tcabeca, cartas, numeroCartas); legacy

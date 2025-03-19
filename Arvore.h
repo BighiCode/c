@@ -15,7 +15,7 @@ typedef struct no{
 NoArvore *inserir(NoArvore *raiz, int valor);
 void imprimir(NoArvore *raiz);
 void destruir(NoArvore *raiz);
-
+NoArvore *criarArvore();
 
 
 #endif
