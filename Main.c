@@ -12,6 +12,7 @@ int main()
     srand((unsigned int)currentTime);
     
 //inicializando variaveis
+    int PontuacaoFinal = 0;
     TCarta cartas[52],aux[52],carta;
     Tarefa Tarefas[10];
     int numeroCartas, escolha, numeroCartasRestantes = 52;
