@@ -1,6 +1,6 @@
 #include "Opcoes.h"
 #include "Pilha.h"
-
+#include "Arvore.h"
 
 #define REPEAT(n, str) for (int i = 0; i < (n); i++) printf(str)
 
