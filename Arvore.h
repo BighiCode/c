@@ -16,6 +16,9 @@ NoArvore *inserir(NoArvore *raiz, int valor);
 void imprimir(NoArvore *raiz);
 void destruir(NoArvore *raiz);
 NoArvore *criarArvore();
+NoArvore *buscar(NoArvore *raiz, int valor);
+NoArvore *remover(NoArvore *raiz, int valor);
+NoArvore *balancear(NoArvore *raiz);
 
 
 #endif
