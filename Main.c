@@ -13,6 +13,8 @@ int main()
     
 //inicializando variaveis
     int PontuacaoFinal = 0;
+    int *antecedencia = (int*)malloc(sizeof(int));
+    *antecedencia = 0;
     TCarta cartas[52],aux[52],carta;
     Tarefa Tarefas[10];
     int numeroCartas, escolha, numeroCartasRestantes = 52;
@@ -111,7 +113,7 @@ int main()
                 break;
 
             case 3:
-                bonusReembaralhamento = cumprirTarefas(bonus,fila);
+                bonusReembaralhamento = cumprirTarefas(bonus,fila,antecedencia);
                 break;
 
             case 4:
