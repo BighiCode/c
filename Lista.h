@@ -1,3 +1,6 @@
+#ifndef LISTA_H
+#define LISTA_H
+
 #include "Menu.h"
 
 typedef struct Tno {
@@ -13,3 +16,5 @@ void removerCartas(Tno** head,Tno *nodeToRemove);
 void copiarPrimeiroParaMao(Tno** cabeca, Tno** mao);
 int getTamanhoLista(Tno* cabeca);
 void printGrandesCartas(TCarta carta, int pos);
+
+#endif

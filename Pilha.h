@@ -1,3 +1,6 @@
+#ifndef PILHA_H
+#define PILHA_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Opcoes.h"
@@ -22,3 +25,5 @@ int comprarCartasDaPilha(Tno** mao, Pilha *pilha,int n);
 int getTamanhoPilha(Pilha* pilha);
 int TranferirPilha(Pilha *pilha, Pilha *descarte,int n);
 void passarPilhaParaVetor(Pilha *pilha, TCarta *v);
+
+#endif

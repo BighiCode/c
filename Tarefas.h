@@ -1,3 +1,6 @@
+#ifndef TAREFAS_H
+#define TAREFAS_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -35,3 +38,5 @@ void adicionarFila(Fila* fila, Tarefa tarefa);
 Tarefa removerFila(Fila* fila, bool *status);
 void diminuirPrazo(Fila *f);
 void fiscalizador(Fila *f);
+
+#endif
