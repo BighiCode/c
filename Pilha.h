@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Opcoes.h"
+#include "Arvore.h"
 
 #define MAX 52  // Define o tamanho máximo da pilha
 
@@ -25,5 +26,6 @@ int comprarCartasDaPilha(Tno** mao, Pilha *pilha,int n);
 int getTamanhoPilha(Pilha* pilha);
 int TranferirPilha(Pilha *pilha, Pilha *descarte,int n);
 void passarPilhaParaVetor(Pilha *pilha, TCarta *v);
+NoArvore *TranferirPilhaParaArvore(Pilha *pilha, NoArvore *arvore);
 
 #endif

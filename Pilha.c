@@ -1,4 +1,5 @@
 #include "Pilha.h"
+#include "Arvore.h"
 
 // Inicializa a pilha vazia
 void inicializarPilha(Pilha* p) {
@@ -91,6 +92,14 @@ int TranferirPilha(Pilha *pilha, Pilha *descarte,int n) {
         empilhar(descarte, desempilhar(pilha));
     }
 
+}
+
+NoArvore *TranferirPilhaParaArvore(Pilha *pilha, NoArvore *arvore){
+
+    while(!pilhaVazia(pilha)){
+        arvore = inserir(arvore, desempilhar(pilha));
+    }
+    return arvore;
 }
 
 int getTamanhoPilha(Pilha* pilha){

@@ -12,8 +12,9 @@ int main()
     srand((unsigned int)currentTime);
     
 //inicializando variaveis
+    NoArvore* arvoreDescarte = NULL;
     int PontuacaoFinal = 0;
-    int PMin = 0;
+    int PMin = 1;
     int *antecedencia = (int*)malloc(sizeof(int));
     *antecedencia = 0;
     TCarta cartas[52],aux[52],carta;
@@ -36,7 +37,6 @@ int main()
     Pilha* pilha = (Pilha*) malloc(sizeof(Pilha));
 
     Pilha* descarte = (Pilha*) malloc(sizeof(Pilha));
-    NoArvore *arvoreDescarte = criarArvore();
 
     inicializarPilha(descarte);
     inicializarPilha(pilha);
@@ -120,6 +120,8 @@ int main()
                 break;
 
             case 4:
+//-------------------------------------------------------------------------------------
+                    //shold change
                 if(bonusReembaralhamento > 0){
                     bonusReembaralhamento -= 1;
                     
@@ -132,8 +134,7 @@ int main()
                     free(descartados);
                     TranferirPilha(pilha, descarte, numeroCartasRestantes);
                     numeroCartasRestantes = 0;
-//-------------------------------------------------------------------------------------
-                    //shold change
+
                     passarPilhaParaVetor(descarte,aux);
                     for(int z = 0; z<52;z++){
                         printf("%s\t%d\n",aux[z].nome,z);
@@ -170,6 +171,15 @@ int main()
                 break;
                 
             case 6:
+
+                arvoreDescarte = TranferirPilhaParaArvore(descarte, arvoreDescarte);
+                imprimirEmformatoDeArvore(arvoreDescarte);
+                printf("\n\n");
+                arvoreDescarte = balancear(arvoreDescarte);
+                imprimirEmformatoDeArvore(arvoreDescarte);
+
+                PontuacaoFinal = PMin * ( ((*antecedencia) * (somaBonus(bonusUSADO))) + (somaBonus(bonus)/2) ) - somaBonus(desbonusTarefas);  
+                printf("\n\npontuacao final: %d\n", PontuacaoFinal);
                 return 0;
                 
             default:
@@ -178,8 +188,4 @@ int main()
             
         }
     }
-
-    PontuacaoFinal = PMin * ( ((*antecedencia) * (somaBonus(bonusUSADO))) + (somaBonus(bonus)/2) ) - somaBonus(desbonusTarefas);
-    
-    return 0;
 }

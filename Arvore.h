@@ -20,5 +20,14 @@ NoArvore *buscar(NoArvore *raiz, TCarta valor);
 NoArvore *remover(NoArvore *raiz, TCarta valor);
 NoArvore *balancear(NoArvore *raiz);
 NoArvore *inserirvetorNaArvore(  NoArvore *raiz, TCarta *vetor, int tamanho);
+void imprimirForaDeOrdem(NoArvore *raiz);
+
+void imprimirEmformatoDeArvore(NoArvore *raiz);
+
+int altura(NoArvore * raiz);
+void escrever_arvore(NoArvore* raiz, char **buffer, int profundidade, int pos, int desloc);
+NoArvore *construirArvoreBalanceada(NoArvore **array, int inicio, int fim);
+void armazenarNosEmOrdem(NoArvore *raiz, NoArvore **array, int *indice);
+int contarNos(NoArvore *raiz);
 
 #endif
