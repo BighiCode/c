@@ -5,44 +5,57 @@ NoArvore *criarArvore() {
     return NULL;
 }
 
-NoArvore *inserir(NoArvore *raiz, int valor) {
+NoArvore *inserir(NoArvore *raiz, TCarta valor) {
+
     if (raiz == NULL) {
         raiz = malloc(sizeof(NoArvore));
-        raiz->valor = valor;
+        raiz->valor.valor = valor.valor;
         raiz->esq = NULL;
         raiz->dir = NULL;
-    } else if (valor < raiz->valor) {
+    } else if (valor.valor <= raiz->valor.valor) {
         raiz->esq = inserir(raiz->esq, valor);
-    } else if (valor > raiz->valor) {
+    } else if (valor.valor >= raiz->valor.valor) {
         raiz->dir = inserir(raiz->dir, valor);
     }
     return raiz;
 }
 
+NoArvore *inserirvetorNaArvore(  NoArvore *raiz, TCarta *vetor, int tamanho) {
+    
+    for(int i = 0; i < tamanho; i++) {
+        
+        raiz = inserir(raiz, vetor[i]);
+        printf("%d ", vetor[i].valor);
+    }
+    return raiz;
+
+}
+
 void imprimir(NoArvore *raiz) {
+
     if (raiz != NULL) {
         imprimir(raiz->esq);
-        printf("%d ", raiz->valor);
+        printf("\n%d ", raiz->valor.valor);
         imprimir(raiz->dir);
     }
 }
 
-NoArvore *buscar(NoArvore *raiz, int valor) {
-    if (raiz == NULL || raiz->valor == valor) {
+NoArvore *buscar(NoArvore *raiz, TCarta valor) {
+    if (raiz == NULL || raiz->valor.valor == valor.valor) {
         return raiz;
-    } else if (valor < raiz->valor) {
+    } else if (valor.valor < raiz->valor.valor) {
         return buscar(raiz->esq, valor);
     } else {
         return buscar(raiz->dir, valor);
     }
 }
 
-NoArvore *remover(NoArvore *raiz, int valor) {
+NoArvore *remover(NoArvore *raiz, TCarta valor) {
     if (raiz == NULL) {
         return NULL;
-    } else if (valor < raiz->valor) {
+    } else if (valor.valor < raiz->valor.valor) {
         raiz->esq = remover(raiz->esq, valor);
-    } else if (valor > raiz->valor) {
+    } else if (valor.valor > raiz->valor.valor) {
         raiz->dir = remover(raiz->dir, valor);
     } else {
         if (raiz->esq == NULL && raiz->dir == NULL) {

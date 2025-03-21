@@ -36,7 +36,7 @@ int main()
     Pilha* pilha = (Pilha*) malloc(sizeof(Pilha));
 
     Pilha* descarte = (Pilha*) malloc(sizeof(Pilha));
-    NoArvore *arvoreDescarte = criarArvore();// aponta pra NULL kkkkkkkkk
+    NoArvore *arvoreDescarte = criarArvore();
 
     inicializarPilha(descarte);
     inicializarPilha(pilha);
@@ -49,9 +49,11 @@ int main()
 
 //inserindo 
     //inserirCartas(&Tcabeca, cartas, numeroCartas); legacy
-    inserirCartasNaPilha(pilha, cartas, numeroCartas);
-    
 
+    inserirCartasNaPilha(pilha, cartas, numeroCartas);
+
+    //limpa tela
+    REPEAT(100, "\n");
 
 //menu 1
     while(1){
