@@ -1,6 +1,10 @@
+#ifndef TAREFAS_H
+#define TAREFAS_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "Cartas.h"
 
 typedef struct tarefa {
     int turnoDeAparecimento;
@@ -33,5 +37,8 @@ bool estaVazia(Fila* fila);
 Tarefa espiarFila(Fila* fila, bool *status);
 void adicionarFila(Fila* fila, Tarefa tarefa);
 Tarefa removerFila(Fila* fila, bool *status);
-void diminuirPrazo(Fila *f);
-void fiscalizador(Fila *f);
+void diminuirPrazo(Fila *f, Bonus *desbonus);
+void fiscalizador(Fila *f, Bonus *desbonus);
+
+
+#endif

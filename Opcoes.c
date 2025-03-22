@@ -82,7 +82,8 @@ int comprarCartas(Tno** mao, Tno **cabeca,int n) {
 }
 
 void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descarte) {
-    if (*cabeca == NULL) {
+    if (getTamanhoLista(*cabeca) < quantidade) {
+        printf("Quantidade de cartas insuficiente para descarte.\n");
         return;
     }
 
@@ -259,21 +260,25 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
     
 }
 
-int cumprirTarefas(Bonus *bonus,Fila* fila){
+int cumprirTarefas(Bonus *bonus,Bonus *bonusUsado,Fila* fila, int * antecendencia){
 
     bool status;
     Tarefa tarefa = espiarFila(fila, &status);
     int premio = 0;
+    if(status == false){
+        return 0;
+    }
     if(bonus->copas >= tarefa.copasDemandadas && bonus->espadas >= tarefa.espadasDemandadas && bonus->ouros >= tarefa.ourosDemandados && bonus->paus >= tarefa.pausDemandados){
         bonus->copas -= tarefa.copasDemandadas;
         bonus->espadas -= tarefa.espadasDemandadas;
         bonus->ouros -= tarefa.ourosDemandados;
         bonus->paus -= tarefa.pausDemandados;
         premio = tarefa.premioDeRembaralhamento;
-        bonus->copas += premio;
-        bonus->espadas += premio;
-        bonus->ouros += premio;
-        bonus->paus += premio;
+        bonusUsado->copas += tarefa.copasDemandadas;
+        bonusUsado->espadas += tarefa.espadasDemandadas;
+        bonusUsado->ouros += tarefa.ourosDemandados;
+        bonusUsado->paus += tarefa.pausDemandados;
+        *antecendencia += tarefa.turnoDeAparecimento;
         removerFila(fila, &status);
         return premio;
     }else{
@@ -300,4 +305,14 @@ void descartesSemPontos(Tno** cabeca, int quantidade, TCarta* descarte){
          removerCartas(cabeca, *cabeca);
     }
     
+}
+
+void iniciaBonus(Bonus* bonus){
+    bonus->copas = 0;
+    bonus->espadas = 0;
+    bonus->ouros = 0;
+    bonus->paus = 0;
+}
+int somaBonus(Bonus* bonus){
+    return bonus->copas + bonus->espadas + bonus->ouros + bonus->paus;
 }
