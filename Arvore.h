@@ -30,4 +30,6 @@ NoArvore *construirArvoreBalanceada(NoArvore **array, int inicio, int fim);
 void armazenarNosEmOrdem(NoArvore *raiz, NoArvore **array, int *indice);
 int contarNos(NoArvore *raiz);
 
+int profundidadeMinima(NoArvore* raiz);
+
 #endif

@@ -151,6 +151,22 @@ void destruir(NoArvore *raiz) {
     }
 }
 
+int profundidadeMinima(NoArvore* raiz) {
+    // Se a árvore está vazia, a profundidade é 0
+    if (raiz == NULL) return 0;
+
+    // Se não tem filho esquerdo, retorna a profundidade do lado direito
+    if (raiz->esq == NULL) return 1 + profundidadeMinima(raiz->dir);
+
+    // Se não tem filho direito, retorna a profundidade do lado esquerdo
+    if (raiz->dir == NULL) return 1 + profundidadeMinima(raiz->esq);
+
+    // Se tem ambos os filhos, pega o mínimo entre os dois caminhos
+    return 1 + (profundidadeMinima(raiz->esq) < profundidadeMinima(raiz->dir) 
+                ? profundidadeMinima(raiz->esq) 
+                : profundidadeMinima(raiz->dir));
+}
+
 // **PASSO 1: Contar os Nós na Árvore**
 int contarNos(NoArvore *raiz) {
     if (raiz == NULL) return 0;

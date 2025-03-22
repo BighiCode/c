@@ -82,7 +82,8 @@ int comprarCartas(Tno** mao, Tno **cabeca,int n) {
 }
 
 void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descarte) {
-    if (*cabeca == NULL) {
+    if (getTamanhoLista(*cabeca) < quantidade) {
+        printf("Quantidade de cartas insuficiente para descarte.\n");
         return;
     }
 

@@ -105,15 +105,19 @@ int main()
                 printf("Remover cartas\n");
                 printf("Quantidade: ");
                 scanf("%d", &quantidade);
-
-                numeroDeCartasDescartadas += quantidade;
+                if (getTamanhoLista(TCmao) < quantidade) {
+                    printf("Quantidade de cartas insuficiente para descarte.\n");
+                    break;
+                }else{
+                    numeroDeCartasDescartadas += quantidade;
                 
+                    descartados = (TCarta*)malloc(quantidade*sizeof(TCarta));
+                    descartarCartas(&TCmao, quantidade, bonus, descartados);
+                    inserirCartasNaPilha(descarte, descartados, quantidade);
+                    free(descartados);
+                    break;
+                }
                 
-                descartados = (TCarta*)malloc(quantidade*sizeof(TCarta));
-                descartarCartas(&TCmao, quantidade, bonus, descartados);
-                inserirCartasNaPilha(descarte, descartados, quantidade);
-                free(descartados);
-                break;
 
             case 3:
                 bonusReembaralhamento = cumprirTarefas(bonus,fila,antecedencia);
@@ -173,9 +177,9 @@ int main()
             case 6:
 
                 arvoreDescarte = TranferirPilhaParaArvore(descarte, arvoreDescarte);
-                imprimirEmformatoDeArvore(arvoreDescarte);
-                printf("\n\n");
-                arvoreDescarte = balancear(arvoreDescarte);
+                
+                PMin = profundidadeMinima(arvoreDescarte);
+                printf("\n\nprofundidade minima: %d\n", PMin);
                 imprimirEmformatoDeArvore(arvoreDescarte);
 
                 PontuacaoFinal = PMin * ( ((*antecedencia) * (somaBonus(bonusUSADO))) + (somaBonus(bonus)/2) ) - somaBonus(desbonusTarefas);  
