@@ -171,8 +171,8 @@ int main()
                         adicionarFila(fila, Tarefas[i]);
                     }
                 }
-                diminuirPrazo(fila);
-                fiscalizador(fila, desbonusTarefas);
+                diminuirPrazo(fila, desbonusTarefas);
+                //fiscalizador(fila, desbonusTarefas);
                 break;
                 
             case 6:

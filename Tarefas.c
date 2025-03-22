@@ -87,7 +87,7 @@ Tarefa removerFila(Fila *f, bool *status){
     }
 }
 
-void diminuirPrazo(Fila *f){
+void diminuirPrazo(Fila *f, Bonus *desbonus){
 
     if (estaVazia(f)) {
         printf(" Nenhuma tarefa na fila.\n");
@@ -100,6 +100,7 @@ void diminuirPrazo(Fila *f){
         t->prazo = t->prazo - 1;
         atual = atual->next;
     }
+    fiscalizador(f, desbonus);
 
 }
 
@@ -110,12 +111,18 @@ void fiscalizador(Fila *f, Bonus *desbonus) {
         return;
     }
     bool status;
-    if(f->head->tarefa.prazo <= 0){
-        desbonus->copas += f->head->tarefa.copasDemandadas;
-        desbonus->espadas += f->head->tarefa.espadasDemandadas;
-        desbonus->ouros += f->head->tarefa.ourosDemandados;
-        desbonus->paus += f->head->tarefa.pausDemandados;
-        removerFila(f, &status);
+
+    Node* atual = f->head;
+    while (atual != NULL) {
+        
+        if(atual->tarefa.prazo <= 0){
+            desbonus->copas += atual->tarefa.copasDemandadas;
+            desbonus->espadas += atual->tarefa.espadasDemandadas;
+            desbonus->ouros += atual->tarefa.ourosDemandados;
+            desbonus->paus += atual->tarefa.pausDemandados;
+            removerFila(f, &status);
+        }
+        atual = atual->next;
     }
 
 }
