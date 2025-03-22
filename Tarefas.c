@@ -103,7 +103,7 @@ void diminuirPrazo(Fila *f){
 
 }
 
-void fiscalizador(Fila *f) {
+void fiscalizador(Fila *f, Bonus *desbonus) {
 
     if(estaVazia(f)){
         printf(" Nenhuma tarefa na fila.\n");
@@ -111,6 +111,10 @@ void fiscalizador(Fila *f) {
     }
     bool status;
     if(f->head->tarefa.prazo <= 0){
+        desbonus->copas += f->head->tarefa.copasDemandadas;
+        desbonus->espadas += f->head->tarefa.espadasDemandadas;
+        desbonus->ouros += f->head->tarefa.ourosDemandados;
+        desbonus->paus += f->head->tarefa.pausDemandados;
         removerFila(f, &status);
     }
 

@@ -260,7 +260,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
     
 }
 
-int cumprirTarefas(Bonus *bonus,Fila* fila, int * antecendencia){
+int cumprirTarefas(Bonus *bonus,Bonus *bonusUsado,Fila* fila, int * antecendencia){
 
     bool status;
     Tarefa tarefa = espiarFila(fila, &status);
@@ -274,10 +274,10 @@ int cumprirTarefas(Bonus *bonus,Fila* fila, int * antecendencia){
         bonus->ouros -= tarefa.ourosDemandados;
         bonus->paus -= tarefa.pausDemandados;
         premio = tarefa.premioDeRembaralhamento;
-        bonus->copas += premio;
-        bonus->espadas += premio;
-        bonus->ouros += premio;
-        bonus->paus += premio;
+        bonusUsado->copas += tarefa.copasDemandadas;
+        bonusUsado->espadas += tarefa.espadasDemandadas;
+        bonusUsado->ouros += tarefa.ourosDemandados;
+        bonusUsado->paus += tarefa.pausDemandados;
         *antecendencia += tarefa.turnoDeAparecimento;
         removerFila(fila, &status);
         return premio;

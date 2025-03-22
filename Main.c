@@ -56,7 +56,7 @@ int main()
     REPEAT(100, "\n");
 
 //menu 1
-    while(1){
+    while(escolha != 1){
 
         escolha = menu1();
 
@@ -68,9 +68,9 @@ int main()
             case 2:
                 return 0;
             default:
-                break;
+                printf("Opcao invalida\n");
         }
-        break;
+        
     }
 
 //menu2
@@ -109,6 +109,7 @@ int main()
                     printf("Quantidade de cartas insuficiente para descarte.\n");
                     break;
                 }else{
+
                     numeroDeCartasDescartadas += quantidade;
                 
                     descartados = (TCarta*)malloc(quantidade*sizeof(TCarta));
@@ -120,7 +121,7 @@ int main()
                 
 
             case 3:
-                bonusReembaralhamento = cumprirTarefas(bonus,fila,antecedencia);
+                bonusReembaralhamento = cumprirTarefas(bonus,bonusUSADO,fila,antecedencia);
                 break;
 
             case 4:
@@ -171,7 +172,7 @@ int main()
                     }
                 }
                 diminuirPrazo(fila);
-                fiscalizador(fila);
+                fiscalizador(fila, desbonusTarefas);
                 break;
                 
             case 6:
@@ -179,8 +180,12 @@ int main()
                 arvoreDescarte = TranferirPilhaParaArvore(descarte, arvoreDescarte);
                 
                 PMin = profundidadeMinima(arvoreDescarte);
-                printf("\n\nprofundidade minima: %d\n", PMin);
-                imprimirEmformatoDeArvore(arvoreDescarte);
+
+                //PMin ok
+                //atencedencia ok
+                //somaBonus(bonusUSADO) ok
+                //somaBonus(bonus)/2 ok
+                //somaBonus(desbonusTarefas) ok
 
                 PontuacaoFinal = PMin * ( ((*antecedencia) * (somaBonus(bonusUSADO))) + (somaBonus(bonus)/2) ) - somaBonus(desbonusTarefas);  
                 printf("\n\npontuacao final: %d\n", PontuacaoFinal);
