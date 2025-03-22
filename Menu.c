@@ -48,7 +48,7 @@ int menu2(Bonus* bonus, int bonusReembaralhamento){
 
 void menuTurno(int turno, Fila *fila) {
     printf("-------------------------------------------------------");
-    printf("\nTurno: %d", turno);
+    printf("\nTurno: %d", turno + 1);
     printf("\nTarefas: ");
 
     if (estaVazia(fila)) {

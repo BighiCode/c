@@ -1,3 +1,6 @@
+#ifndef CARTAS_H
+#define CARTAS_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -28,3 +31,5 @@ typedef struct bonus {
 
 int lerArquivo(TCarta *cartas);
 void embaralhar(TCarta *vetor, int tamanho);
+
+#endif
