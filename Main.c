@@ -83,7 +83,7 @@ int main()
 
         menuTurno(turno, fila);
 
-        printf("\nMão:\t");
+        printf("\nMao:\t");
 
         imprimirCartas(TCmao,getTamanhoLista(TCmao));
         
@@ -96,7 +96,7 @@ int main()
                 printf("Reposicionar cartas\n");
                 printf("Qual carta quer reposicionar?\n");
                 scanf("%d", &p1);
-                printf("Para qual posição?\n");
+                printf("Para qual posicao?\n");
                 scanf("%d", &p2);
                 reposicionarCartas(&TCmao, p1 - 1, p2 - 1);
                 break;
@@ -157,7 +157,7 @@ int main()
                     numeroCartasRestantes += comprarCartasDaPilha(&TCmao, pilha, 5);
                     break;
                 }else{
-                    printf("Não foi possivel reembaralhar, falta bônus!");
+                    printf("Nao foi possivel reembaralhar, falta bonus!");
                     break;
                 }
                     
@@ -188,11 +188,11 @@ int main()
                 //somaBonus(desbonusTarefas) ok
 
                 PontuacaoFinal = PMin * ( ((*antecedencia) * (somaBonus(bonusUSADO))) + (somaBonus(bonus)/2) ) - somaBonus(desbonusTarefas);  
-                printf("\n\nPontuação final: %d\n", PontuacaoFinal);
+                printf("\n\nPontuacao final: %d\n", PontuacaoFinal);
                 return 0;
                 
             default:
-                printf("Opção inválida.\n");
+                printf("Opcao invalida.\n");
                 break;
             
         }

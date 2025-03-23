@@ -12,7 +12,7 @@ int menu1(){
     printf("\nMenu\n\n");
     printf("1. Sortear\n");
     printf("2. Sair\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
     scanf("%d", &escolha);
     return escolha;
 }
@@ -28,8 +28,8 @@ int menu1(){
 int menu2(Bonus* bonus, int bonusReembaralhamento){
     int escolha;
     int n = 0;
-    printf("\nBônus de reembaralhamento:\t %d\n", bonusReembaralhamento);
-    printf("Bônus de cartas:\t Copas:%d Espadas:%d Ouros:%d Paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
+    printf("\nBonus de reembaralhamento:\t %d\n", bonusReembaralhamento);
+    printf("Bonus de cartas:\t Copas:%d Espadas:%d Ouros:%d Paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
     printf("-------------------------------------------------------");
     printf("\nMenu:\n\n");
     n++;printf("%d - Reposicionar cartas\t",n);
@@ -39,7 +39,7 @@ int menu2(Bonus* bonus, int bonusReembaralhamento){
     n++;printf("%d - Finalizar turno\t",n);
     n++;printf("%d - Encerrar o jogo\n",n);
 
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
     scanf("%d", &escolha);
     
     return escolha;
