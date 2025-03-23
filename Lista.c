@@ -32,6 +32,14 @@ void inserirNoFinal(Tno** cabeca, TCarta carta) {
     }
 }
 
+int getPosicaoCarta(Tno* cabeca, TCarta carta) {
+    while (cabeca != NULL) {
+        if (cabeca->carta.face == carta.face && cabeca->carta.naipe == carta.naipe) {
+            return 1;
+        }
+        cabeca = cabeca->prox;
+    }
+}
 
  void inserirCartas(Tno** cabeca, TCarta* cartas, int numCartas) {
     for (int i = 0; i < numCartas; i++) {
