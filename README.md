@@ -2,6 +2,14 @@
 
 Este é um jogo de cartas desenvolvido em C para a disciplina de Estruturas de Dados I.
 
+## 📊 Estatísticas do Repositório
+
+### 📈 Atividade do Repositório
+![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BighiCode&repo=CLearning&theme=react-dark)
+
+### 📌 Linguagens Usadas
+![Linguagens](https://github-readme-stats.vercel.app/api/top-langs/?username=BighiCode&repo=CLearning&layout=compact&theme=dark)
+
 ## 📥 Como Baixar e Rodar
 
 ### 1️⃣ Clonar o repositório
