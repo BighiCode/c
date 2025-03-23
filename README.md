@@ -2,6 +2,17 @@
 
 Este é um jogo de cartas desenvolvido em C para a disciplina de Estruturas de Dados I.
 
+## 📊 Estatísticas do Repositório
+[![GitHub Repo stars](https://img.shields.io/github/stars/BighiCode/c?style=social)](https://github.com/BighiCode/c)
+[![GitHub forks](https://img.shields.io/github/forks/BighiCode/c?style=social)](https://github.com/BighiCode/c)
+[![GitHub last commit](https://img.shields.io/github/last-commit/BighiCode/c)](https://github.com/BighiCode/c)
+
+### 📈 Atividade do Repositório
+![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BighiCode&repo=c&theme=react-dark)
+
+### 📌 Linguagens Usadas
+![Linguagens](https://github-readme-stats.vercel.app/api/top-langs/?username=BighiCode&repo=c&layout=compact&theme=dark)
+
 ## 📥 Como Baixar e Rodar
 
 ### 1️⃣ Clonar o repositório
