@@ -12,7 +12,7 @@ int menu1(){
     printf("\nMenu\n\n");
     printf("1. Sortear\n");
     printf("2. Sair\n");
-    printf("Escolha uma opcao: ");
+    printf("Escolha uma opção: ");
     scanf("%d", &escolha);
     return escolha;
 }
@@ -28,19 +28,18 @@ int menu1(){
 int menu2(Bonus* bonus, int bonusReembaralhamento){
     int escolha;
     int n = 0;
-    printf("\n-------------------------------------------------------");
-    printf("\nbonus de reembaralhamento:\t %d\n", bonusReembaralhamento);
-    printf("bonus de cartas:\t\t copas:%d espadas:%d ouros:%d paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
+    printf("\nBônus de reembaralhamento:\t %d\n", bonusReembaralhamento);
+    printf("Bônus de cartas:\t Copas:%d Espadas:%d Ouros:%d Paus:%d\n", bonus->copas, bonus->espadas, bonus->ouros, bonus->paus);
     printf("-------------------------------------------------------");
-    printf("\nMenu\n\n");
-    n++;printf("%d. reposicionar cartas\t",n);
-    n++;printf("%d. descartar cartas\t",n);
-    n++;printf("%d. cumprir tarefas\t",n);
-    n++;printf("%d. reenbaralhar tudo\t",n);
-    n++;printf("%d. finalizar turno\t",n);
-    n++;printf("%d. sair\t",n);
+    printf("\nMenu:\n\n");
+    n++;printf("%d - Reposicionar cartas\t",n);
+    n++;printf("%d - Descartar cartas\t",n);
+    n++;printf("%d - Cumprir tarefas\t",n);
+    n++;printf("%d - Reembaralhar tudo\t",n);
+    n++;printf("%d - Finalizar turno\t",n);
+    n++;printf("%d - Encerrar o jogo\n",n);
 
-    printf("Escolha uma opcao: ");
+    printf("Escolha uma opção: ");
     scanf("%d", &escolha);
     
     return escolha;
@@ -59,9 +58,9 @@ void menuTurno(int turno, Fila *fila) {
     Node* atual = fila->head;
     while (atual != NULL) {
         Tarefa t = atual->tarefa;
-        printf("%d (P-%d E-%d O-%d C-%d) ", 
-               t.prazo, t.pausDemandados, t.espadasDemandadas, 
-               t.ourosDemandados, t.copasDemandadas);
+        printf("%d (Copas: %d Espadas: %d Ouros: %d Paus: %d) ", 
+               t.prazo, t.copasDemandadas, t.espadasDemandadas, 
+               t.ourosDemandados, t.pausDemandados);
         atual = atual->next;
     }
 
@@ -70,6 +69,5 @@ void menuTurno(int turno, Fila *fila) {
 
 void menuMonte(int numeroCartas, int descarte) {
     printf("-------------------------------------------------------");
-    printf("\nMonte(%d)\tDescarte(%d)\n", numeroCartas, descarte);
-    printf("-------------------------------------------------------\n");
+    printf("\nMonte: %d\tDescarte:%d\n", numeroCartas, descarte);
 }

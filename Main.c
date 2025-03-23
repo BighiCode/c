@@ -83,7 +83,7 @@ int main()
 
         menuTurno(turno, fila);
 
-        printf("\nMao:\t");
+        printf("\nMão:\t");
 
         imprimirCartas(TCmao,getTamanhoLista(TCmao));
         
@@ -94,9 +94,9 @@ int main()
 
             case 1:
                 printf("Reposicionar cartas\n");
-                printf("Posicao 1: ");
+                printf("Qual carta quer reposicionar?\n");
                 scanf("%d", &p1);
-                printf("Posicao 2: ");
+                printf("Para qual posição?\n");
                 scanf("%d", &p2);
                 reposicionarCartas(&TCmao, p1 - 1, p2 - 1);
                 break;
@@ -131,10 +131,10 @@ int main()
                     bonusReembaralhamento -= 1;
                     
                     descartados = (TCarta*)malloc(getTamanhoLista(TCmao)*sizeof(TCarta));
-                    printf("descartados: %d\n",getTamanhoLista(TCmao));
+                    printf("Descartados: %d\n",getTamanhoLista(TCmao));
                     int auxdescarte = getTamanhoLista(TCmao);
                     descartesSemPontos(&TCmao, auxdescarte, descartados);
-                    printf("descartados: %d\n",getTamanhoLista(TCmao));
+                    printf("Descartados: %d\n",getTamanhoLista(TCmao));
                     inserirCartasNaPilha(descarte, descartados, auxdescarte);
                     free(descartados);
                     TranferirPilha(pilha, descarte, numeroCartasRestantes);
@@ -157,7 +157,7 @@ int main()
                     numeroCartasRestantes += comprarCartasDaPilha(&TCmao, pilha, 5);
                     break;
                 }else{
-                    printf("não foi possivel reenbaralhar, falta bonus!");
+                    printf("Não foi possivel reembaralhar, falta bônus!");
                     break;
                 }
                     
@@ -188,11 +188,11 @@ int main()
                 //somaBonus(desbonusTarefas) ok
 
                 PontuacaoFinal = PMin * ( ((*antecedencia) * (somaBonus(bonusUSADO))) + (somaBonus(bonus)/2) ) - somaBonus(desbonusTarefas);  
-                printf("\n\npontuacao final: %d\n", PontuacaoFinal);
+                printf("\n\nPontuação final: %d\n", PontuacaoFinal);
                 return 0;
                 
             default:
-                printf("Opcao invalida\n");
+                printf("Opção inválida.\n");
                 break;
             
         }

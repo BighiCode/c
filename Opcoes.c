@@ -160,7 +160,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(maiorFace >= 4){
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) quadra:\n");
+        printf("Digite um naipe para receber a bonificação ('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus) quadra:\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 20;
@@ -179,7 +179,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(maiorNaipe >= 3){
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) Mesmo naipe:\n");
+        printf("Escolha um naipe para receber a bonificação ('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus) Mesmo naipe:\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 3*maiorNaipe;
@@ -198,7 +198,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(sequencia >= 3){
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) sequencia:\n");
+        printf("Escolha um naipe para receber a bonificação ('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus) Sequência:\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 2*sequencia;
@@ -219,7 +219,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(maiorFace == 3){
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) trinca:\n");
+        printf("Escolha um naipe para receber a bonificação ('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus) Trinca:\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 5;
@@ -239,7 +239,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
     if (maiorFace == 2)
     {
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) par:\n");
+        printf("Escolha um naipe para receber a bonificação ('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus) Par:\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 2;
@@ -282,7 +282,7 @@ int cumprirTarefas(Bonus *bonus,Bonus *bonusUsado,Fila* fila, int * antecendenci
         removerFila(fila, &status);
         return premio;
     }else{
-        printf("\nNao foi possivel cumprir a tarefa\n");
+        printf("\nNão foi possível cumprir a tarefa.\n");
         return 0;
     }
 
