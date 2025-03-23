@@ -3,9 +3,9 @@
 Este é um jogo de cartas desenvolvido em C para a disciplina de Estruturas de Dados I.
 
 ## 📊 Estatísticas do Repositório
-[![GitHub Repo stars](https://img.shields.io/github/stars/BighiCode/CLearning?style=social)](https://github.com/BighiCode/c)
-[![GitHub forks](https://img.shields.io/github/forks/BighiCode/CLearning?style=social)](https://github.com/BighiCode/c)
-[![GitHub last commit](https://img.shields.io/github/last-commit/BighiCode/CLearning)](https://github.com/BighiCode/c)
+[![GitHub Repo stars](https://img.shields.io/github/stars/BighiCode/c?style=social)](https://github.com/BighiCode/c)
+[![GitHub forks](https://img.shields.io/github/forks/BighiCode/c?style=social)](https://github.com/BighiCode/c)
+[![GitHub last commit](https://img.shields.io/github/last-commit/BighiCode/c)](https://github.com/BighiCode/c)
 
 ### 📈 Atividade do Repositório
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BighiCode&repo=c&theme=react-dark)
