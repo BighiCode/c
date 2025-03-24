@@ -7,7 +7,7 @@
 /**
  * ARQ opcoes
  * 
- * sorteia as cartas da mão
+ * sorteia as cartas da mao
  * dps remove elas da lista
  * @return cartas sorteadas
  */
@@ -22,7 +22,7 @@ void reposicionarCartas(Tno** cabeca, int p1, int p2) {
     Tno* anterior1 = NULL;
     Tno* anterior2 = NULL;
 
-    // Encontra a carta na posição p1
+    // Encontra a carta na posicao p1
     for (int i = 0; i < p1; i++) {
         if (carta1 == NULL) {
             return;
@@ -32,7 +32,7 @@ void reposicionarCartas(Tno** cabeca, int p1, int p2) {
     }
 
 
-    // Encontra a carta na posição p2
+    // Encontra a carta na posicao p2
     for (int i = 0; i < p2; i++) {
         if (carta2 == NULL) {
             return;
@@ -160,7 +160,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(maiorFace >= 4){
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) quadra:\n");
+        printf("Escolha um naipe para receber a bonificacao de quadra (+20 pontos)\n('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus)\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 20;
@@ -179,7 +179,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(maiorNaipe >= 3){
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) Mesmo naipe:\n");
+        printf("Escolha um naipe para receber a bonificacao de mesmo naipe (3 * tamanho)\n('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus):\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 3*maiorNaipe;
@@ -198,7 +198,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(sequencia >= 3){
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) sequencia:\n");
+        printf("Escolha um naipe para receber a bonificacao de sequência (2 * tamanho)\n('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus):\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 2*sequencia;
@@ -219,7 +219,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(maiorFace == 3){
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) trinca:\n");
+        printf("Escolha um naipe para receber a bonificacao de trinca (+5 pontos)\n('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus):\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 5;
@@ -239,7 +239,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
     if (maiorFace == 2)
     {
         char c;
-        printf("escolha um naipe para receber a bonificiacao(C,E,O,P) par:\n");
+        printf("Escolha um naipe para receber a bonificacao de par (+2 pontos)\n('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus):\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 2;
@@ -282,7 +282,7 @@ int cumprirTarefas(Bonus *bonus,Bonus *bonusUsado,Fila* fila, int * antecendenci
         removerFila(fila, &status);
         return premio;
     }else{
-        printf("\nNao foi possivel cumprir a tarefa\n");
+        printf("\nNao foi possivel cumprir a tarefa.\n");
         return 0;
     }
 
