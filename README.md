@@ -10,6 +10,7 @@ Este é um jogo de cartas desenvolvido em C para a disciplina de Estruturas de D
 ### 📈 Atividade do Repositório
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=BighiCode&repo=c&theme=react-dark)
 
+
 ### 📌 Linguagens Usadas
 ![Linguagens](https://github-readme-stats.vercel.app/api/top-langs/?username=BighiCode&repo=c&layout=compact&theme=dark)
 
