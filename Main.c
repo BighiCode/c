@@ -188,7 +188,8 @@ int main()
                 //somaBonus(desbonusTarefas) ok
 
                 PontuacaoFinal = PMin * ( ((*antecedencia) * (somaBonus(bonusUSADO))) + (somaBonus(bonus)/2) ) - somaBonus(desbonusTarefas);  
-                printf("\n\nPontuacao final: %d\n", PontuacaoFinal);
+                printf("\n\nPontuacao final: %d\nObrigado por jogar!", PontuacaoFinal);
+                scanf("%d");
                 return 0;
                 
             default:

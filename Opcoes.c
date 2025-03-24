@@ -198,7 +198,7 @@ void descartarCartas(Tno** cabeca, int quantidade, Bonus* bonus, TCarta* descart
 
     if(sequencia >= 3){
         char c;
-        printf("Escolha um naipe para receber a bonificacao de sequência (2 * tamanho)\n('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus):\n");
+        printf("Escolha um naipe para receber a bonificacao de sequencia (2 * tamanho)\n('C' para copas, 'E' para espadas, 'O' para Ouros, 'P' para Paus):\n");
         scanf(" %c", &c);
         if(c == 'C'){
             bonus->copas += 2*sequencia;
