@@ -32,14 +32,6 @@ void inserirNoFinal(Tno** cabeca, TCarta carta) {
     }
 }
 
-int getPosicaoCarta(Tno* cabeca, TCarta carta) {
-    while (cabeca != NULL) {
-        if (cabeca->carta.face == carta.face && cabeca->carta.naipe == carta.naipe) {
-            return 1;
-        }
-        cabeca = cabeca->prox;
-    }
-}
 
  void inserirCartas(Tno** cabeca, TCarta* cartas, int numCartas) {
     for (int i = 0; i < numCartas; i++) {
@@ -54,8 +46,7 @@ void imprimirCartas(Tno* cabeca, int quantidade) {
     TCarta *cartas = malloc( quantidade*sizeof(TCarta));
     while (atual != NULL && quantidade > 0) {
         //printf("|%s-%c|\t", atual->carta.face, atual->carta.naipe);
-
-        printGrandesCartas(atual->carta, quantidade);
+        printGrandesCartas(atual->carta, getPosicaoCarta(cabeca,atual->carta));
         atual = atual->prox;
         quantidade--;
     }
@@ -64,6 +55,20 @@ void imprimirCartas(Tno* cabeca, int quantidade) {
     //printf("\nposicao:");
     printf("\n-------------------------------------------------------");
 }
+
+int getPosicaoCarta(Tno* cabeca, TCarta carta) {
+    int posicao = 0;
+    Tno* atual = cabeca;
+    while (atual != NULL) {
+        if (strcmp(atual->carta.face, carta.face) == 0 && atual->carta.naipe == carta.naipe) {
+            return posicao + 1;
+        }
+        posicao++;
+        atual = atual->prox;
+    }
+    return -1; // carta não encontrada
+}
+
 
 void printGrandesCartas(TCarta carta, int pos) {
     
@@ -88,7 +93,7 @@ void printGrandesCartas(TCarta carta, int pos) {
     printf("\n|\t  |");
     printf("\n|\t%-2s|", carta.face);
     printf("\n|_________|" );
-    printf("\n%d°",5-pos+1);
+    printf("\n%d°",pos);
 
 }
 
